@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu'
 import { cva } from 'class-variance-authority'
 import { ChevronDownIcon } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/app/lib/utils'
 
 const NavigationMenu = React.forwardRef<React.ElementRef<typeof NavigationMenuPrimitive.Root>, React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> & { viewport?: boolean }>(({ className, children, viewport = true, ...props }, ref) => (
     <NavigationMenuPrimitive.Root

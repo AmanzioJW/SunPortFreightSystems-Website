@@ -1,5 +1,5 @@
-import { Logo } from '@/components/logo'
-import { Button } from '@/components/ui/button'
+import { Logo } from '@/app/components/logo'
+import { Button } from '@/app/components/ui/button'
 import { Input } from '@/app/components/ui/input'
 import { Label } from '@/app/components/ui/label'
 import Link from 'next/link'

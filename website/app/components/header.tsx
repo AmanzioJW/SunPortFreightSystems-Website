@@ -7,7 +7,7 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { Headset, Menu, X, Shield, SquareActivity, Sparkles, Cpu, Gem, ShoppingBag, GraduationCap, BookOpen, Notebook, Croissant } from 'lucide-react'
 import { useMedia } from '@/app/hooks/use-media'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui/accordion'
-import { cn } from '@/lib/utils'
+import { cn } from '@/app/lib/utils'
 import { motion, AnimatePresence } from 'motion/react'
 
 interface FeatureLink {

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@/app/components/ui/button'
 import { ChevronRight, Cpu, Lock, Sparkles, Zap } from 'lucide-react'
 import { DropdownIllustration } from "@/app/components/newsandresources-components/dropdown-illustration"
 import Link from 'next/link'
