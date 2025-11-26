@@ -11,8 +11,9 @@ export default function Home() {
         <HeroSection />
         <WhyChooseUs />
         <Solutions />
-        <Solutions-CTA />
+        <SolutionsCTA />
         <NewsAndResources />
         <Footer />
     </div>
   );
+}
