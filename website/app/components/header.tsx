@@ -250,10 +250,6 @@ export default function HeaderOne() {
                     </div>
                 </div>
             </header>
-            <main
-                role="main"
-                className="bg-muted h-[120vh]"
-            />
         </>
     )
 }
