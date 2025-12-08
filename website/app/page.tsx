@@ -1,5 +1,5 @@
 import Header from './components/header';
-import HeroSection from './components/herosection';
+import { HeroSection } from './components/herosection';
 import WhyChooseUs from './components/whychooseus';
 import Solutions from './components/services';
 import SolutionsCTA from './components/solutionscta';

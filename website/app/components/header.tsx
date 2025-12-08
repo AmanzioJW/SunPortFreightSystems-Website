@@ -1,14 +1,13 @@
 'use client'
 import Link from 'next/link'
-import { Logo, LogoIcon } from '@/app/components/logo'
+import { Logo } from '@/app/components/logo'
 import { Button } from '@/app/components/ui/button'
 import React from 'react'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '@/app/components/ui/navigation-menu'
-import { Headset, Menu, X, Shield, SquareActivity, Sparkles, Cpu, Gem, ShoppingBag, GraduationCap, BookOpen, Notebook, Croissant } from 'lucide-react'
+import { Menu, X, Truck, PackageOpen, Train, Warehouse, AlertTriangle, Anchor, Handshake, ClipboardCheck, Factory, Sprout, Car, HardHat, ShoppingCart, Cpu, Newspaper, Bell, FolderOpen, Package, Landmark, Calculator, BookOpen} from 'lucide-react'
 import { useMedia } from '@/app/hooks/use-media'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui/accordion'
 import { cn } from '@/app/lib/utils'
-import { motion, AnimatePresence } from 'motion/react'
 
 interface FeatureLink {
     href: string
@@ -24,87 +23,171 @@ interface MobileLink {
     href?: string
 }
 
-const features: FeatureLink[] = [
+const servicesLinks: FeatureLink[] = [
     {
-        href: '#ux',
-        name: 'AI',
-        description: 'Generate Insights and Recommendations',
-        icon: <Sparkles className="stroke-foreground fill-green-500/15" />,
+        href: '/Services/Truckload (FTL)',
+        name: 'Truckload (FTL)',
+        description: 'Full truckload shipping services',
+        icon: <Truck className="stroke-foreground fill-blue-500/15" />,
     },
     {
-        href: '#performance',
-        name: 'Performance',
-        description: 'Lightning-fast load times',
-        icon: <SquareActivity className="stroke-foreground fill-indigo-500/15" />,
+        href: '/Services/Less Than Truckload (LTL)',
+        name: 'Less Than Truckload (LTL)',
+        description: 'Partial shipment solutions',
+        icon: <PackageOpen className="stroke-foreground fill-green-500/15" />,
     },
     {
-        href: '#security',
-        name: 'Security',
-        description: 'Keep your data safe and secure',
-        icon: <Shield className="stroke-foreground fill-blue-500/15" />,
+        href: '/Services/Intermodal',
+        name: 'Intermodal',
+        description: 'Multi-mode transportation',
+        icon: <Train className="stroke-foreground fill-purple-500/15" />,
     },
     {
-        href: '#support',
-        name: 'Customer Support',
-        description: 'Get help when you need it',
-        icon: <Headset className="stroke-foreground fill-pink-500/15" />,
+        href: '/Services/Warehousing',
+        name: 'Warehousing',
+        description: 'Storage and distribution',
+        icon: <Warehouse className="stroke-foreground fill-indigo-500/15" />,
+    },
+    {
+        href: '/Services/Specialized Services/Hazmat',
+        name: 'Hazmat',
+        description: 'Hazardous materials transport',
+        icon: <AlertTriangle className="stroke-foreground fill-orange-500/15" />,
+    },
+    {
+        href: '/Services/Specialized Services/Heavy Haul',
+        name: 'Heavy Haul',
+        description: 'Oversized and overweight loads',
+        icon: <Anchor className="stroke-foreground fill-slate-500/15" />,
     },
 ]
 
-const useCases: FeatureLink[] = [
+const carriersLinks: FeatureLink[] = [
     {
-        href: '#ux',
-        name: 'Marketplace',
-        description: 'Find and buy AI tools',
-        icon: <ShoppingBag className="stroke-foreground fill-emerald-500/25" />,
+        href: '/Carriers/Haul With Us',
+        name: 'Haul With Us',
+        description: 'Join our carrier network',
+        icon: <Handshake className="stroke-foreground fill-blue-500/15" />,
     },
     {
-        href: '#performance',
-        name: 'Guides',
-        description: 'Learn how to use AI tools',
-        icon: <GraduationCap className="stroke-foreground fill-indigo-500/15" />,
+        href: '/Carriers/Get Set Up',
+        name: 'Get Set Up',
+        description: 'Carrier onboarding and registration',
+        icon: <ClipboardCheck className="stroke-foreground fill-green-500/15" />,
+    },
+]
+
+const industriesLinks: FeatureLink[] = [
+    {
+        href: '/Industries/Agriculture',
+        name: 'Agriculture',
+        description: 'Farm and agricultural shipping',
+        icon: <Sprout className="stroke-foreground fill-green-500/15" />,
     },
     {
-        href: '#security',
-        name: 'API Integration',
-        description: 'Integrate AI tools into your app',
-        icon: <Cpu className="stroke-foreground fill-blue-500/15" />,
+        href: '/Industries/Automotive',
+        name: 'Automotive',
+        description: 'Auto parts and vehicle transport',
+        icon: <Car className="stroke-foreground fill-red-500/15" />,
     },
     {
-        href: '#support',
-        name: 'Partnerships',
-        description: 'Get help when you need it',
-        icon: <Gem className="stroke-foreground fill-pink-500/15" />,
+        href: '/Industries/Construction',
+        name: 'Construction',
+        description: 'Building materials shipping',
+        icon: <HardHat className="stroke-foreground fill-orange-500/15" />,
+    },
+    {
+        href: '/Industries/Manufacturing',
+        name: 'Manufacturing',
+        description: 'Industrial goods transport',
+        icon: <Factory className="stroke-foreground fill-slate-500/15" />,
+    },
+    {
+        href: '/Industries/Retail',
+        name: 'Retail',
+        description: 'Consumer goods distribution',
+        icon: <ShoppingCart className="stroke-foreground fill-purple-500/15" />,
+    },
+    {
+        href: '/Industries/Technology',
+        name: 'Technology',
+        description: 'Electronics and tech equipment',
+        icon: <Cpu className="stroke-foreground fill-indigo-500/15" />,
+    },
+]
+
+const sunportHubLinks: FeatureLink[] = [
+    {
+        href: '/SunPort Hub/Industry News',
+        name: 'Industry News',
+        description: 'Latest freight and logistics news',
+        icon: <Newspaper className="stroke-foreground fill-blue-500/15" />,
+    },
+    {
+        href: '/SunPort Hub/Alerts & Notices',
+        name: 'Alerts & Notices',
+        description: 'Important updates and announcements',
+        icon: <Bell className="stroke-foreground fill-orange-500/15" />,
+    },
+    {
+        href: '/SunPort Hub/Carrier Resources',
+        name: 'Carrier Resources',
+        description: 'Tools and guides for carriers',
+        icon: <FolderOpen className="stroke-foreground fill-green-500/15" />,
+    },
+    {
+        href: '/SunPort Hub/Shipper Resources',
+        name: 'Shipper Resources',
+        description: 'Resources for shippers',
+        icon: <Package className="stroke-foreground fill-purple-500/15" />,
+    },
+    {
+        href: '/SunPort Hub/Government Agency Updates',
+        name: 'Government Agency Updates',
+        description: 'Regulatory news and compliance',
+        icon: <Landmark className="stroke-foreground fill-slate-500/15" />,
+    },
+    {
+        href: '/SunPort Hub/Tools & Calculators',
+        name: 'Tools & Calculators',
+        description: 'Freight calculators and utilities',
+        icon: <Calculator className="stroke-foreground fill-indigo-500/15" />,
     },
 ]
 
 const contentLinks: FeatureLink[] = [
     { name: 'Announcements', href: '#link', icon: <BookOpen className="stroke-foreground fill-purple-500/15" /> },
-    { name: 'Resources', href: '#link', icon: <Croissant className="stroke-foreground fill-red-500/15" /> },
-    { name: 'Blog', href: '#link', icon: <Notebook className="stroke-foreground fill-zinc-500/15" /> },
+    { name: "Shipper's Tools", href: '/SunPort Hub/Tools & Calculators', icon: <Calculator className="stroke-foreground fill-purple-500/15" /> }
 ]
 
 const mobileLinks: MobileLink[] = [
     {
-        groupName: 'Product',
-        links: features,
+        groupName: 'Solutions',
+        links: servicesLinks,
     },
     {
-        groupName: 'Solutions',
-        links: [...useCases, ...contentLinks],
+        groupName: 'Carriers',
+        links: carriersLinks,
     },
-    { name: 'Pricing', href: '#' },
-    { name: 'Company', href: '#' },
+    {
+        groupName: 'Industries',
+        links: industriesLinks,
+    },
+    {
+        groupName: 'SunPort Hub',
+        links: sunportHubLinks,
+    },
+    { name: 'About Us', href: '/About Us' },
 ]
 
-export default function Header() {
+export default function HeaderOne() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
-    const isLarge = useMedia('(min-width: 64rem)')
     const [isScrolled, setIsScrolled] = React.useState(false)
+    const isLarge = useMedia('(min-width: 64rem)')
 
     React.useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 75)
+            setIsScrolled(window.scrollY > 50)
         }
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
@@ -114,18 +197,18 @@ export default function Header() {
         <>
             <header
                 role="banner"
-                data-theme="dark"
-                {...(isScrolled && { 'data-scrolled': true })}
                 data-state={isMobileMenuOpen ? 'active' : 'inactive'}
-                className="bg-background [--color-popover:color-mix(in_oklch,var(--color-muted)_25%,var(--color-background))]">
-                <div className={cn('relative', 'not-in-data-scrolled:has-data-[state=open]:[--viewport-translate:-4rem]', !isLarge && 'in-data-scrolled:border-b in-data-scrolled:border-foreground/5 in-data-scrolled:backdrop-blur in-data-scrolled:bg-card/50 fixed inset-x-0 top-0 z-50 h-16 overflow-hidden', 'max-lg:in-data-[state=active]:bg-card/50 max-lg:in-data-[state=active]:h-screen max-lg:in-data-[state=active]:backdrop-blur')}>
-                    <div className="mx-auto max-w-6xl px-6">
-                        <div className="max-lg:not-in-data-[state=active]:h-16 relative flex flex-wrap items-center justify-between py-1.5 lg:py-5">
-                            <div className="max-lg:in-data-[state=active]:border-foreground/5 max-lg:in-data-[state=active]:border-b flex items-center justify-between gap-8 max-lg:h-14 max-lg:w-full">
+                {...(isScrolled && { 'data-scrolled': true })}
+                className="fixed inset-x-0 top-0 z-50">
+                <div className={cn('border-foregroud/5 absolute inset-x-0 top-0 z-50 transition-all duration-300', 'in-data-scrolled:border-b in-data-scrolled:bg-background/75 in-data-scrolled:backdrop-blur', !isLarge && 'h-14 overflow-hidden border-b', isMobileMenuOpen && 'bg-background/75 h-screen backdrop-blur')}>
+                    <div className="mx-auto max-w-6xl px-6 lg:px-12">
+                        <div className="relative flex flex-wrap items-center justify-between lg:py-5">
+                            <div className="flex justify-between gap-8 max-lg:h-14 max-lg:w-full max-lg:border-b">
                                 <Link
                                     href="/"
-                                    aria-label="home">
-                                    <Logo className="h-5" />
+                                    aria-label="home"
+                                    className="flex items-center space-x-2">
+                                    <Logo />
                                 </Link>
 
                                 <button
@@ -138,48 +221,9 @@ export default function Header() {
                             </div>
 
                             {isLarge && (
-                                <motion.div
-                                    animate={{ width: 'fit-content', gap: 8 }}
-                                    className="bg-popover/50 ring-background inset-shadow-sm inset-shadow-white/[0.02] border-foreground/5 fixed inset-x-0 z-50 mx-auto size-fit max-w-xl rounded-xl border p-1.5 shadow-xl shadow-black/25 ring-1 backdrop-blur-xl">
-                                    <div className="flex items-center">
-                                        <AnimatePresence>
-                                            {isScrolled && (
-                                                <motion.div
-                                                    key="logo"
-                                                    initial={{ opacity: 0, width: 0 }}
-                                                    animate={{ opacity: 1, width: '3rem' }}
-                                                    exit={{ opacity: 0, width: 0 }}
-                                                    className="before:bg-foreground/10 before:border-background/75 relative before:absolute before:inset-y-1 before:right-2 before:w-0.5 before:rounded before:border-r">
-                                                    <Link
-                                                        href="/"
-                                                        aria-label="home"
-                                                        className="hover:bg-foreground/5 flex size-7 rounded-md">
-                                                        <LogoIcon className="m-auto size-4" />
-                                                    </Link>
-                                                </motion.div>
-                                            )}
-                                            <NavMenu key="nav-menu" />
-                                            {isScrolled && (
-                                                <motion.div
-                                                    key="sign-in-button"
-                                                    initial={{ opacity: 0, width: 0 }}
-                                                    animate={{ opacity: 1, width: 'auto' }}
-                                                    exit={{ opacity: 0, width: 0 }}
-                                                    className="overflow-hidden">
-                                                    <Button
-                                                        asChild
-                                                        size="sm"
-                                                        variant="outline"
-                                                        className="border-foreground/10 ml-4 h-7 ring-0">
-                                                        <Link href="#">
-                                                            <span>Sign In</span>
-                                                        </Link>
-                                                    </Button>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-                                </motion.div>
+                                <div className="absolute inset-0 m-auto size-fit">
+                                    <NavMenu />
+                                </div>
                             )}
                             {!isLarge && isMobileMenuOpen && <MobileMenu closeMenu={() => setIsMobileMenuOpen(false)} />}
 
@@ -187,17 +231,17 @@ export default function Header() {
                                 <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                                     <Button
                                         asChild
-                                        variant="ghost"
+                                        variant="outline"
                                         size="sm">
                                         <Link href="#">
-                                            <span>Sign In</span>
+                                            <span>Login</span>
                                         </Link>
                                     </Button>
                                     <Button
                                         asChild
                                         size="sm">
                                         <Link href="#">
-                                            <span>Start for free</span>
+                                            <span>Contact Us</span>
                                         </Link>
                                     </Button>
                                 </div>
@@ -206,11 +250,6 @@ export default function Header() {
                     </div>
                 </div>
             </header>
-            <main
-                role="main"
-                data-theme="dark"
-                className="bg-background h-[120vh]"
-            />
         </>
     )
 }
@@ -219,7 +258,7 @@ const MobileMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     return (
         <nav
             role="navigation"
-            className="w-full [--color-border:--alpha(var(--color-foreground)/5%)] [--color-muted:--alpha(var(--color-foreground)/5%)]">
+            className="w-full">
             <Accordion
                 type="single"
                 collapsible
@@ -230,7 +269,7 @@ const MobileMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                             <AccordionItem
                                 key={index}
                                 value={link.groupName}
-                                className="before:border-border group relative border-b-0 before:pointer-events-none before:absolute before:inset-x-4 before:bottom-0 before:border-b">
+                                className="group relative border-b-0">
                                 <AccordionTrigger className="**:!font-normal data-[state=open]:bg-muted flex items-center justify-between px-4 py-3 text-lg">{link.groupName}</AccordionTrigger>
                                 <AccordionContent className="pb-5">
                                     <ul>
@@ -264,7 +303,7 @@ const MobileMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                             key={index}
                             href={link.href}
                             onClick={closeMenu}
-                            className="group relative block border-0 border-b py-4 text-lg">
+                            className="group relative block py-4 text-lg">
                             {link.name}
                         </Link>
                     )
@@ -277,75 +316,185 @@ const MobileMenu = ({ closeMenu }: { closeMenu: () => void }) => {
 
 const NavMenu = () => {
     return (
-        <NavigationMenu className="**:data-[slot=navigation-menu-viewport]:translate-x-(--viewport-translate) **:data-[slot=navigation-menu-viewport]:transition-all **:data-[slot=navigation-menu-viewport]:min-w-lg **:data-[slot=navigation-menu-viewport]:max-w-2xl **:data-[slot=navigation-menu-viewport]:bg-[color-mix(in_oklch,var(--color-muted)_25%,var(--color-background))] max-lg:hidden">
-            <NavigationMenuList className="**:data-[slot=navigation-menu-trigger]:h-7 **:data-[slot=navigation-menu-trigger]:text-foreground/75 **:data-[slot=navigation-menu-trigger]:px-3 **:data-[slot=navigation-menu-trigger]:text-sm gap-0 gap-1">
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>Product</NavigationMenuTrigger>
-                    <NavigationMenuContent className="w-full origin-top p-0.5 pb-1">
-                        <div className="border-foreground/5 bg-card ring-foreground/5 rounded-[calc(var(--radius)-2px)] border border-transparent p-2 shadow ring-1">
-                            <span className="text-muted-foreground ml-2 text-xs">Solutions</span>
-                            <ul className="mt-1 grid grid-cols-2 gap-2">
-                                {features.map((feature, index) => (
-                                    <ListItem
-                                        key={index}
-                                        href={feature.href}
-                                        title={feature.name}
-                                        description={feature.description}>
-                                        {feature.icon}
-                                    </ListItem>
-                                ))}
-                            </ul>
+        <NavigationMenu className="**:data-[slot=navigation-menu-viewport]:bg-[color-mix(in_oklch,var(--color-muted)_25%,var(--color-background))] **:data-[slot=navigation-menu-viewport]:shadow-lg **:data-[slot=navigation-menu-viewport]:rounded-2xl **:data-[slot=navigation-menu-viewport]:top-4 [--color-muted:color-mix(in_oklch,var(--color-foreground)_5%,transparent)] [--viewport-outer-px:2rem] max-lg:hidden">
+            <NavigationMenuList className="gap-3">
+                <NavigationMenuItem value="solutions">
+                    <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+    <NavigationMenuContent className="origin-top pb-1.5 pl-1 pr-4 pt-1">
+        <div className="min-w-6xl pr-18.5 grid w-full grid-cols-4 gap-1">
+            <div className="bg-card row-span-2 grid grid-rows-subgrid gap-1 rounded-xl border p-1 pt-3">
+                <span className="text-muted-foreground ml-2 text-xs">Industries</span>
+                <ul>
+                                    {industriesLinks.map((industry, index) => (
+                                        <ListItem
+                                            key={index}
+                                            href={industry.href}
+                                            title={industry.name}
+                                            description={industry.description}>
+                                            {industry.icon}
+                                        </ListItem>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="bg-card col-span-2 row-span-2 grid-rows-subgrid gap-1 rounded-xl border p-1 pt-3">
+                                <span className="text-muted-foreground ml-2 text-xs">Services</span>
+                                <ul className="grid grid-cols-2">
+                                    {servicesLinks.map((service, index) => (
+                                        <ListItem
+                                            key={index}
+                                            href={service.href}
+                                            title={service.name}
+                                            description={service.description}>
+                                            {service.icon}
+                                        </ListItem>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="row-span-2 grid grid-rows-subgrid">
+                                <div className="bg-muted/50 relative row-span-2 grid overflow-hidden rounded-xl border p-6 transition-colors duration-200">
+                                    <div className="space-y-4">
+                                        <h3 className="text-foreground text-xl font-semibold">Ready to Connect?</h3>
+                                        <p className="text-foreground/80 text-sm leading-relaxed">
+                                            Complete our online contact form and a member of our team will reach out to discuss your specific freight needs and begin the process of finding the right supply chain solution for you.
+                                        </p>
+                                        <Button
+                                            asChild
+                                            variant="outline"
+                                            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full font-semibold">
+                                            <Link href="/Contact">SPEAK TO AN EXPERT</Link>
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
-                    <NavigationMenuContent className="min-w-lg grid w-full origin-top grid-cols-[auto_1fr] gap-2 p-0.5 pb-1">
-                        <div className="border-foreground/5 bg-card ring-foreground/5 rounded-[calc(var(--radius)-2px)] border border-transparent p-2 shadow ring-1">
-                            <span className="text-muted-foreground ml-2 text-xs">Use Cases</span>
-                            <ul className="mt-1 space-y-2">
-                                {useCases.map((useCase, index) => (
-                                    <ListItem
-                                        key={index}
-                                        href={useCase.href}
-                                        title={useCase.name}
-                                        description={useCase.description}>
-                                        {useCase.icon}
-                                    </ListItem>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="p-2">
-                            <span className="text-muted-foreground ml-2 text-xs">Content</span>
-                            <ul className="mt-1">
-                                {contentLinks.map((content, index) => (
-                                    <NavigationMenuLink
-                                        key={index}
-                                        asChild>
+                <NavigationMenuItem value="Carriers">
+                    <NavigationMenuTrigger>Carriers</NavigationMenuTrigger>
+                    <NavigationMenuContent className="origin-top pb-1.5 pl-1 pr-4 pt-1">
+                        <div className="min-w-6xl pr-18.5 grid w-full grid-cols-3 gap-1">
+                            <div className="bg-card row-span-2 grid grid-rows-subgrid gap-1 rounded-xl border p-1 pt-3">
+                                <span className="text-muted-foreground ml-2 text-xs">Join Our Network</span>
+                                <ul className="grid grid-cols-1">
+                                    {carriersLinks.map((carrier, index) => (
+                                        <ListItem
+                                            key={index}
+                                            href={carrier.href}
+                                            title={carrier.name}
+                                            description={carrier.description}>
+                                            {carrier.icon}
+                                        </ListItem>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="row-span-2 grid grid-rows-subgrid">
+                                <div className="bg-muted/50 relative row-span-2 grid overflow-hidden rounded-xl border p-6 transition-colors duration-200">
+                                    <div className="space-y-4">
+                                        <h3 className="text-foreground text-xl font-semibold">Ready to Connect?</h3>
+                                        <p className="text-foreground/80 text-sm leading-relaxed">
+                                            Have questions about onboarding? Our carrier support team is here to help.
+                                        </p>
+                                        <Button
+                                            asChild
+                                            variant="outline"
+                                            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full font-semibold">
+                                            <Link href="/Contact">CONTACT US</Link>
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bg-card row-span-2 grid grid-rows-subgrid gap-1 rounded-xl border p-1 pt-3">
+                                <span className="text-muted-foreground ml-2 text-xs">Content</span>
+                                <ul>
+                                    <NavigationMenuLink asChild>
                                         <Link
-                                            href={content.href}
+                                            href="/Carriers/FAQ"
                                             className="grid grid-cols-[auto_1fr] items-center gap-2.5">
-                                            {content.icon}
-                                            <div className="text-foreground text-sm font-medium">{content.name}</div>
+                                            <BookOpen className="stroke-foreground fill-purple-500/15 size-4" />
+                                            <div className="text-foreground text-sm font-medium">FAQ&apos;s</div>
                                         </Link>
                                     </NavigationMenuLink>
-                                ))}
-                            </ul>
+                                    {contentLinks.filter(content => content.name === 'Announcements').map((content, index) => (
+                                        <NavigationMenuLink
+                                            key={index}
+                                            asChild>
+                                            <Link
+                                                href={content.href}
+                                                className="grid grid-cols-[auto_1fr] items-center gap-2.5">
+                                                {content.icon}
+                                                <div className="text-foreground text-sm font-medium">{content.name}</div>
+                                            </Link>
+                                        </NavigationMenuLink>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuLink
-                        asChild
-                        className={navigationMenuTriggerStyle({ className: 'text-foreground/75 h-7 px-3 text-sm' })}>
-                        <Link href="#">Pricing</Link>
-                    </NavigationMenuLink>
+                <NavigationMenuItem value="SunPort Hub">
+                    <NavigationMenuTrigger>SunPort Hub</NavigationMenuTrigger>
+                    <NavigationMenuContent className="origin-top pb-1.5 pl-1 pr-4 pt-1">
+                        <div className="min-w-6xl pr-18.5 grid w-full grid-cols-4 gap-1">
+                            <div className="bg-card col-span-2 row-span-2 grid grid-rows-subgrid gap-1 rounded-xl border p-1 pt-3">
+                                <span className="text-muted-foreground ml-2 text-xs">News & Insights</span>
+                                <ul className="grid grid-cols-2">
+                                    {sunportHubLinks.filter(hub =>
+                                        hub.name === 'Industry News' ||
+                                        hub.name === 'Alerts & Notices' ||
+                                        hub.name === 'Government Agency Updates'
+                                    ).map((hub, index) => (
+                                        <ListItem
+                                            key={index}
+                                            href={hub.href}
+                                            title={hub.name}
+                                            description={hub.description}>
+                                            {hub.icon}
+                                        </ListItem>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="bg-card row-span-2 grid grid-rows-subgrid gap-1 rounded-xl border p-1 pt-3">
+                                <span className="text-muted-foreground ml-2 text-xs">Resources</span>
+                                <ul>
+                                    {sunportHubLinks.filter(hub =>
+                                        hub.name === 'Carrier Resources' ||
+                                        hub.name === 'Shipper Resources'
+                                    ).map((feature, index) => (
+                                        <ListItem
+                                            key={index}
+                                            href={feature.href}
+                                            title={feature.name}
+                                            description={feature.description}>
+                                            {feature.icon}
+                                        </ListItem>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="row-span-2 grid grid-rows-subgrid gap-1 p-1 pt-3">
+                                <span className="text-muted-foreground ml-2 text-xs">Tools</span>
+                                <ul>
+                                    {contentLinks.map((content, index) => (
+                                        <NavigationMenuLink
+                                            key={index}
+                                            asChild>
+                                            <Link
+                                                href={content.href}
+                                                className="grid grid-cols-[auto_1fr] items-center gap-2.5">
+                                                {content.icon}
+                                                <div className="text-foreground text-sm font-medium">{content.name}</div>
+                                            </Link>
+                                        </NavigationMenuLink>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem value="about-us">
                     <NavigationMenuLink
                         asChild
-                        className={navigationMenuTriggerStyle({ className: 'text-foreground/75 h-7 px-3 text-sm' })}>
-                        <Link href="#">Customers</Link>
+                        className={navigationMenuTriggerStyle()}>
+                        <Link href="#">About Us</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
@@ -356,11 +505,13 @@ const NavMenu = () => {
 function ListItem({ title, description, children, href, ...props }: React.ComponentPropsWithoutRef<'li'> & { href: string; title: string; description?: string }) {
     return (
         <li {...props}>
-            <NavigationMenuLink asChild>
+            <NavigationMenuLink
+                asChild
+                className="rounded-lg">
                 <Link
                     href={href}
                     className="grid grid-cols-[auto_1fr] gap-3.5">
-                    <div className="bg-background ring-foreground/10 before:mask-y-from-80% after:mask-x-from-80% before:border-foreground/[0.075] after:border-foreground/[0.075] relative flex size-10 items-center justify-center rounded border border-transparent shadow shadow-sm ring-1 before:absolute before:-inset-x-1 before:-inset-y-3 before:border-x before:border-dashed after:absolute after:-inset-x-3 after:-inset-y-1 after:border-y after:border-dashed">{children}</div>
+                    <div className="bg-card ring-foreground/10 relative flex size-10 items-center justify-center rounded border border-transparent shadow shadow-sm ring-1">{children}</div>
                     <div className="space-y-0.5">
                         <div className="text-foreground text-sm font-medium">{title}</div>
                         <p className="text-muted-foreground line-clamp-1 text-xs">{description}</p>
