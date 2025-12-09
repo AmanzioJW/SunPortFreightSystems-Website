@@ -1,9 +1,9 @@
-import { ChartIllustration } from "@/app/components/services-components/chart-illustration"
-import { PollIllustration } from "@/app/components/services-components/poll-illustration"
-import { FingerPrintIcon } from "@/app/components/services-components/finger-print-illustration"
-import { MessageIllustration } from "@/app/components/services-components/message-illustration"
-import { MemoryUsageIllustration } from "@/app/components/services-components/memory-usage-illustration"
-import { UptimeIllustration } from "@/app/components/services-components/uptime-illustration"
+import { LessThanTruckload } from "@/app/components/services-components/LessThanTruckload"
+import { SpecializedServices} from "@/app/components/services-components/SpecializedServices"
+import { FullTruckLoad } from "@/app/components/services-components/FullTruckLoad"
+import { UniqueProject } from "@/app/components/services-components/UniqueProject"
+import { Intermodal } from "@/app/components/services-components/Intermodal"
+import { Warehousing } from "@/app/components/services-components/Warehousing"
 
 export default function BentoNine() {
     return (
@@ -12,80 +12,76 @@ export default function BentoNine() {
             className="bg-background @container">
             <div className="py-24 [--color-primary:var(--color-emerald-300)]">
                 <div className="mx-auto w-full max-w-5xl px-6 xl:px-0">
-                    <div className="@2xl:grid-cols-2 @4xl:grid-cols-3 *:hover:bg-muted/15 @2xl:divide-x @4xl:*:[:nth-child(4)]:border-b-0 @2xl:*:[:nth-child(5)]:border-b-0 @4xl:*:[:nth-child(2)]:border-r @4xl:*:[:nth-child(4)]:border-r @2xl:*:[:nth-child(4)]:border-r-0 @2xl:*:[:nth-child(2)]:border-r-0 @4xl:*:[:nth-child(3)]:border-r-0 grid divide-y overflow-hidden rounded-2xl border [--color-border:color-mix(in_oklab,var(--color-foreground)10%,transparent)] [--color-card:color-mix(in_oklab,var(--color-muted)15%,var(--color-background))] *:grid *:grid-rows-[1fr_auto] *:p-8">
+                    <div className="@2xl:grid-cols-2 @4xl:grid-cols-3 *:hover:bg-muted/15 @2xl:divide-x @4xl:*:[:nth-child(4)]:border-b-0 @2xl:*:[:nth-child(5)]:border-b-0 @4xl:*:[:nth-child(2)]:border-r @4xl:*:[:nth-child(4)]:border-r @2xl:*:[:nth-child(4)]:border-r-0 @2xl:*:[:nth-child(2)]:border-r-0 @4xl:*:[:nth-child(3)]:border-r-0 grid divide-y overflow-hidden rounded-2xl border [--color-border:color-mix(in_oklab,var(--color-foreground)10%,transparent)] [--color-card:color-mix(in_oklab,var(--color-muted)15%,var(--color-background))] *:grid *:grid-rows-[auto_1fr] *:p-8">
                         <div className="space-y-8">
-                            <div aria-hidden>
-                                <FingerPrintIcon />
+                            <div aria-hidden className="h-32 flex flex-col justify-center">
+                                <FullTruckLoad />
                             </div>
 
                             <div>
-                                <h3 className="text-foreground font-semibold">Identity Verification</h3>
+                                <h3 className="text-foreground font-semibold">Full Truckload (FTL)</h3>
                                 <p className="text-muted-foreground mt-2">
-                                    Secure authentication with <span className="text-foreground font-medium">biometric recognition</span>.
+                                    <span className="text-foreground font-medium">Secure dedicated capacity for your high-volume shipments. We provide exclusive trailer use for direct, non-stop transport, ensuring the fastest transit times and minimal handling risk.</span>.
                                 </p>
                             </div>
                         </div>
                         <div className="space-y-8">
-                            <div aria-hidden>
-                                <ChartIllustration />
+                            <div aria-hidden className="h-32 flex flex-col justify-center">
+                                <LessThanTruckload />
                             </div>
 
                             <div>
-                                <h3 className="text-foreground font-semibold">Analytics Dashboard</h3>
+                                <h3 className="text-foreground font-semibold">Less-Than-Truckload (LTL)</h3>
                                 <p className="text-muted-foreground mt-2">
-                                    Track performance metrics with <span className="text-foreground font-medium">real-time insights</span>.
+                                    <span className="text-foreground font-medium">Cost-effective flexibility for smaller shipments. Pay only for the space you need by sharing trailer capacity, without sacrificing tracking visibility or service reliability.</span>
                                 </p>
                             </div>
                         </div>
                         <div className="space-y-8">
-                            <div aria-hidden>
-                                <MemoryUsageIllustration />
+                            <div aria-hidden className="h-32 flex flex-col justify-center">
+                                <Intermodal />
                             </div>
 
                             <div>
-                                <h3 className="text-foreground font-semibold">Resource Monitoring</h3>
+                                <h3 className="text-foreground font-semibold">Intermodal</h3>
                                 <p className="text-muted-foreground mt-2">
-                                    Optimize system resources with <span className="text-foreground font-medium">intelligent allocation</span>.
+                                    <span className="text-foreground font-medium">Optimize your long-haul supply chain by combining the economy of rail with the flexibility of trucking. A sustainable choice that reduces carbon footprint and shipping costs.</span>
                                 </p>
                             </div>
                         </div>
                         <div className="space-y-8">
-                            <div
-                                aria-hidden
-                                className="flex flex-col justify-center">
-                                <UptimeIllustration />
+                            <div aria-hidden className="h-32 flex flex-col justify-center">
+                                <Warehousing />
                             </div>
 
                             <div>
-                                <h3 className="text-foreground font-semibold">Service Reliability</h3>
+                                <h3 className="text-foreground font-semibold">Warehousing</h3>
                                 <p className="text-muted-foreground mt-2">
-                                    Maintain continuous operations with <span className="text-foreground font-medium">99.9% uptime</span>.
+                                    <span className="text-foreground font-medium">Strategic storage solutions equipped with real-time inventory management. From cross-docking to long-term storage, we ensure your goods are staged and ready for rapid distribution.</span>
                                 </p>
                             </div>
                         </div>
                         <div className="space-y-8">
-                            <div aria-hidden>
-                                <PollIllustration />
+                            <div aria-hidden className="h-32 flex flex-col justify-center">
+                                <SpecializedServices />
                             </div>
 
                             <div>
-                                <h3 className="text-foreground font-semibold">User Feedback</h3>
+                                <h3 className="text-foreground font-semibold">Specialized Services</h3>
                                 <p className="text-muted-foreground mt-2">
-                                    Collect valuable insights through <span className="text-foreground font-medium">interactive surveys</span>.
+                                    <span className="text-foreground font-medium"> Our network is equipped to manage temperature-controlled, Hazmat, and heavy-haul requirements safely.</span>
                                 </p>
                             </div>
                         </div>
                         <div className="space-y-8">
-                            <div
-                                aria-hidden
-                                className="flex flex-col justify-center">
-                                <MessageIllustration />
+                            <div aria-hidden className="h-32 flex flex-col justify-center">
+                                <UniqueProject />
                             </div>
 
                             <div>
-                                <h3 className="text-foreground font-semibold">Communication Hub</h3>
+                                <h3 className="text-foreground font-semibold">Have a Unique Project?</h3>
                                 <p className="text-muted-foreground mt-2">
-                                    Connect team members with <span className="text-foreground font-medium">seamless messaging</span>.
+                                    <span className="text-foreground font-medium">Connect with our solution architects to build a bespoke transportation plan for projects that don&apos;t fit standard categories</span>.
                                 </p>
                             </div>
                         </div>

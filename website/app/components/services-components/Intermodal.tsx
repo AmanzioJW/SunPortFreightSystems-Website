@@ -1,4 +1,4 @@
-export const MemoryUsageIllustration = () => (
+export const Intermodal = () => (
     <div className="mask-r-from-55% mask-l-from-85% -mx-8 -mb-8 flex flex-col justify-end border-b px-8 pb-8 pt-4">
         <div className="space-y-2.5">
             <span className="text-foreground block text-sm font-medium">Memory Usage</span>

@@ -1,4 +1,4 @@
-export const UptimeIllustration = () => (
+export const Warehousing = () => (
     <div className="border-border-illustration bg-illustration space-y-2.5 rounded-2xl border p-4">
         <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Uptime</span>

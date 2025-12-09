@@ -1,6 +1,6 @@
 const MESCHAC_AVATAR = 'https://avatars.githubusercontent.com/u/47919550?v=4'
 
-export const MessageIllustration = () => (
+export const UniqueProject = () => (
     <div aria-hidden>
         <div className="flex items-center gap-2">
             <img

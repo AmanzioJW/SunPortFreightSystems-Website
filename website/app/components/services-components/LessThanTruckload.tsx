@@ -22,7 +22,7 @@ const chartData = [
     { month: 'April', desktop: 400, mobile: 800 },
 ]
 
-export const ChartIllustration = () => {
+export const LessThanTruckload = () => {
     return (
         <ChartContainer
             className="-mb-4 aspect-auto h-36"

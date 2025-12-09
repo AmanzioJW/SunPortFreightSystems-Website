@@ -56,7 +56,7 @@ export function HeroSection() {
 
             {/* Scroll Down Indicator */}
             {!hasScrolled && (
-                <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20">
+                <div className="absolute bottom-60 left-1/2 -translate-x-1/2 z-20">
                     <div className="flex flex-col items-center gap-2 text-white animate-bounce">
                         <span className="text-md font-bold">Scroll</span>
                         <ChevronDown className="w-8 h-8" />

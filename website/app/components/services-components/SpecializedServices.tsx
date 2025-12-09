@@ -1,4 +1,4 @@
-export const PollIllustration = () => {
+export const SpecializedServices = () => {
     return (
         <div
             aria-hidden

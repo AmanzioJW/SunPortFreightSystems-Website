@@ -1,6 +1,6 @@
 import { cn } from '@/app/lib/utils'
 
-export const FingerPrintIcon = () => {
+export const FullTruckLoad = () => {
     return (
         <div aria-hidden>
             <div className="aspect-3/4 bg-radial relative w-16 rounded from-white/5 to-transparent">
