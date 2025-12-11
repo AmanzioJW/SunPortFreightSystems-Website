@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main # The branch you want to deploy from
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0 # Use a specific version/tag
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/ # The directory on the server where you want to deploy files
