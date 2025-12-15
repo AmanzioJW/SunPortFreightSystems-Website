@@ -1,82 +1,169 @@
-import { MemoryUsageIllustration } from "@/app/components/solutionscta-components/memory-usage-illustration"
-import { CampaignIllustration } from "@/app/components/solutionscta-components/campaign-illustration"
-import { cn } from '@/app/lib/utils'
-import { PollIllustration } from "@/app/components/solutionscta-components/poll-illustration"
+'use client'
 
-export default function HowItWorksSeven() {
+import { useState, useEffect, useCallback } from 'react'
+import { ChevronRight } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { AspectRatio } from '@/app/components/ui/aspect-ratio'
+import useEmblaCarousel from 'embla-carousel-react'
+import { cn } from '@/app/lib/utils'
+
+const carouselItems = [
+    {
+        image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171590/time_djv8te.webp",
+        alt: "Visual intelligence representation",
+        title: "Not a Bad Story",
+        description: "Our platform integrates text, image, and audio processing into a unified framework.",
+        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        width: 1388,
+        height: 1388
+    },
+    {
+        image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171584/dots-2_kmiukp.webp",
+        alt: "Multimodal learning visualization",
+        title: "Made 3M in 2 years",
+        description: "Our platform integrates text, image, and audio processing into a unified framework.",
+        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        width: 1388,
+        height: 1388
+    },
+    {
+        image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171590/dna_lp2xey.webp",
+        alt: "DNA visualization",
+        title: "Raised 10M",
+        description: "Our platform integrates text, image, and audio processing into a unified framework.",
+        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        width: 1388,
+        height: 1388
+    },
+    {
+        image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171590/time_djv8te.webp",
+        alt: "Innovation showcase",
+        title: "Scaled to 100K Users",
+        description: "Our platform delivers cutting-edge solutions for modern businesses seeking growth.",
+        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        width: 1388,
+        height: 1388
+    },
+    {
+        image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171584/dots-2_kmiukp.webp",
+        alt: "Technology advancement",
+        title: "Won Industry Award",
+        description: "Recognized for innovation and excellence in AI-powered marketing solutions.",
+        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        width: 1388,
+        height: 1388
+    },
+    {
+        image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171590/dna_lp2xey.webp",
+        alt: "Global expansion",
+        title: "Expanded to 50 Countries",
+        description: "Bringing innovative marketing tools to businesses worldwide with seamless integration.",
+        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        width: 1388,
+        height: 1388
+    }
+]
+
+export function ContentSection() {
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' })
+    const [selectedIndex, setSelectedIndex] = useState(0)
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return
+        setSelectedIndex(emblaApi.selectedScrollSnap())
+    }, [emblaApi])
+
+    useEffect(() => {
+        if (!emblaApi) return
+
+        // Set initial index without triggering cascading renders
+        requestAnimationFrame(() => onSelect())
+
+        emblaApi.on('select', onSelect)
+        return () => {
+            emblaApi.off('select', onSelect)
+        }
+    }, [emblaApi, onSelect])
+
+    // Autoplay
+    useEffect(() => {
+        if (!emblaApi) return
+
+        const autoplay = setInterval(() => {
+            emblaApi.scrollNext()
+        }, 3000) // 3 second interval
+
+        return () => clearInterval(autoplay)
+    }, [emblaApi])
+
     return (
-        <section
-            data-theme="dark"
-            className="bg-background @container">
-            <div className="py-24 [--color-primary:var(--color-emerald-300)]">
-                <div className="mx-auto w-full max-w-5xl px-6 xl:px-0">
-                    <div className="@4xl:text-left text-center">
-                        <h2 className="text-foreground text-3xl font-semibold">Simple Three-Step Workflow</h2>
-                        <p className="text-muted-foreground mt-4 text-balance text-lg">
-                            Experience our streamlined approach to data analysis that empowers your team to make <span className="text-foreground">informed decisions</span> quickly and efficiently.
-                        </p>
-                    </div>
-                    <div className="@max-4xl:max-w-sm relative mx-auto mt-12">
-                        <PlusDecorator className="-translate-[calc(50%-0.5px)]" />
-                        <PlusDecorator className="right-0 -translate-y-[calc(50%-0.5px)] translate-x-[calc(50%-0.5px)]" />
-                        <PlusDecorator className="bottom-0 right-0 translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]" />
-                        <PlusDecorator className="bottom-0 -translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]" />
-                        <div className="@4xl:grid-cols-3 @4xl:divide-x @max-4xl:divide-y grid overflow-hidden border [--color-border:color-mix(in_oklab,var(--color-foreground)10%,transparent)] [--color-card:color-mix(in_oklab,var(--color-muted)15%,var(--color-background))] *:p-8">
-                            <div className="row-span-2 grid grid-rows-subgrid gap-8">
+        <section className="bg-background">
+            <div className="bg-muted/50 @container py-16 md:py-24">
+                <div className="mx-auto max-w-5xl px-6">
+                    <h2 className="text-muted-foreground text-balance text-4xl font-semibold md:w-2/3">
+                        Building the next generation of <strong className="text-foreground font-semibold">AI-powered Marketing Tools</strong>
+                    </h2>
+
+                    <div ref={emblaRef} className="mt-12 overflow-hidden">
+                        <div className="flex gap-6">
+                            {carouselItems.map((item, idx) => (
                                 <div
-                                    aria-hidden
-                                    className="relative flex flex-col justify-end">
-                                    <Counter number={1} />
-                                    <CampaignIllustration />
-                                </div>
-                                <div>
-                                    <h3 className="text-foreground font-semibold">Secure Messaging</h3>
-                                    <p className="text-muted-foreground mt-2">End-to-end encrypted communications for enterprise.</p>
-                                </div>
-                            </div>
-                            <div className="row-span-2 grid grid-rows-subgrid gap-8">
-                                <div
-                                    aria-hidden
-                                    className="relative flex flex-col justify-end">
-                                    <Counter number={2} />
-                                    <div className="relative">
-                                        <div className="bg-linear-to-br/increasing from-primary absolute inset-1/3 m-auto aspect-video rounded-full to-indigo-500 blur-3xl"></div>
-                                        <div className="mask-y-from-55% mask-r-from-55% absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:2px_2px]"></div>
-                                        <PollIllustration />
+                                    key={idx}
+                                    className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
+                                >
+                                    <div className="grid grid-rows-[auto_auto_auto_auto] gap-4">
+                                        <AspectRatio
+                                            ratio={1 / 1}
+                                            className="bg-background ring-foreground/5 rounded-xl border border-transparent p-6 shadow ring-1">
+                                            <Image
+                                                src={item.image}
+                                                alt={item.alt}
+                                                width={item.width}
+                                                height={item.height}
+                                                className="aspect-square size-full object-cover"
+                                            />
+                                        </AspectRatio>
+                                        <h3 className="text-muted-foreground text-sm">{item.title}</h3>
+                                        <p className="text-muted-foreground">
+                                            {item.description.includes('integrates') ? (
+                                                <>
+                                                    Our platform <strong className="text-foreground font-semibold">integrates text, image, and audio processing</strong> into a unified framework.
+                                                </>
+                                            ) : (
+                                                item.description
+                                            )}
+                                        </p>
+                                        <Link
+                                            href={item.link}
+                                            className="text-primary hover:text-foreground flex items-center gap-1 text-sm transition-colors duration-200">
+                                            Read more
+                                            <ChevronRight className="size-3.5 translate-y-px" />
+                                        </Link>
                                     </div>
                                 </div>
-
-                                <div>
-                                    <h3 className="text-foreground font-semibold">Analytics Dashboard</h3>
-                                    <p className="text-muted-foreground mt-2">Data visualization tools to transform complex metrics into insights.</p>
-                                </div>
-                            </div>
-                            <div className="row-span-2 grid grid-rows-subgrid gap-8">
-                                <div
-                                    aria-hidden
-                                    className="relative flex flex-col justify-center">
-                                    <Counter number={3} />
-                                    <MemoryUsageIllustration />
-                                </div>
-
-                                <div className="@4xl:mt-0 mt-8">
-                                    <h3 className="text-foreground font-semibold">Resource Monitoring</h3>
-                                    <p className="text-muted-foreground mt-2">Real-time tracking of system performance to optimize efficiency.</p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
+                    </div>
+
+                    {/* Pagination Dots */}
+                    <div className="mt-8 flex justify-center gap-2">
+                        {carouselItems.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => emblaApi?.scrollTo(index)}
+                                className={cn(
+                                    "h-2 rounded-full transition-all duration-300",
+                                    selectedIndex === index
+                                        ? "w-8 bg-foreground"
+                                        : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                                )}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
         </section>
     )
 }
-
-const PlusDecorator = ({ className }: { className?: string }) => (
-    <div
-        aria-hidden
-        className={cn('mask-radial-from-15% before:bg-foreground/25 after:bg-foreground/25 absolute size-3 before:absolute before:inset-0 before:m-auto before:h-px after:absolute after:inset-0 after:m-auto after:w-px', className)}
-    />
-)
-
-const Counter = ({ number }: { number: number }) => <div className="text-foreground mask-y-from-55% mask-x-from-55% @4xl:absolute top-0 flex size-6 -translate-x-1/3 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full font-mono text-sm before:absolute before:inset-0 before:bg-[repeating-linear-gradient(-45deg,var(--color-foreground),var(--color-foreground)_0.5px,transparent_0.5px,transparent_3px)] before:opacity-35">{number}</div>

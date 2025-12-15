@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(find . -name \"page.tsx\" -type f -exec sh -c 'wc -l \"\"$1\"\" | grep \"\"^[01] \"\"' _ {} ; -print)",
+      "Bash(node fix-empty-pages.js:*)",
+      "Bash(node fix-all-empty.js:*)"
+    ]
+  }
+}

@@ -55,23 +55,23 @@ export default function SupplyChainMap() {
       // Add nodes (ports/cities)
       const nodeFeatures = [
         {
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [-81.6557, 30.3322] },
+          type: "Feature" as const,
+          geometry: { type: "Point" as const, coordinates: [-81.6557, 30.3322] as [number, number] },
           properties: { title: "Jacksonville Hub" },
         },
         {
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [-66.1057, 18.4655] },
+          type: "Feature" as const,
+          geometry: { type: "Point" as const, coordinates: [-66.1057, 18.4655] as [number, number] },
           properties: { title: "San Juan" },
         },
         {
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [4.4792, 51.9244] },
+          type: "Feature" as const,
+          geometry: { type: "Point" as const, coordinates: [4.4792, 51.9244] as [number, number] },
           properties: { title: "Rotterdam" },
         },
         {
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [-118.2437, 34.0522] },
+          type: "Feature" as const,
+          geometry: { type: "Point" as const, coordinates: [-118.2437, 34.0522] as [number, number] },
           properties: { title: "Los Angeles" },
         },
       ];
@@ -98,9 +98,9 @@ export default function SupplyChainMap() {
 
       // Add routes
       const routeFeatures = ROUTES.map((route) => ({
-        type: "Feature",
+        type: "Feature" as const,
         geometry: {
-          type: "LineString",
+          type: "LineString" as const,
           coordinates: [route.from, route.to],
         },
         properties: { id: route.id },
