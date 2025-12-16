@@ -3,7 +3,7 @@ import { Logo } from '@/app/components/logo'
 import { Activity, Map as MapIcon, MessageCircle } from 'lucide-react'
 import DottedMap from 'dotted-map'
 import { Area, AreaChart, CartesianGrid } from 'recharts'
-import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
+import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/app/components/ui/chart'
 
 export default function FeaturesSection() {
     return (
