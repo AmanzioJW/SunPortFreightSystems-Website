@@ -1,11 +1,11 @@
 import { Button } from '@/app/components/ui/button'
 import { ChevronRight, Cpu, Lock, Sparkles, Zap } from 'lucide-react'
-import { DropdownIllustration } from "@/app/components/newsandresources-components/dropdown-illustration"
+import { DropdownIllustration } from "@/app/components/spfsmission-components/dropdown-illustration"
 import Link from 'next/link'
 
 export default function FeaturesSection() {
     return (
-        <section className="overflow-hidden">
+        <section id="spfs-mission-section" className="overflow-hidden">
             <div className="bg-zinc-50 py-24">
                 <div className="mx-auto w-full max-w-5xl px-6">
                     <div className="grid items-center gap-12 pb-12 md:grid-cols-2">

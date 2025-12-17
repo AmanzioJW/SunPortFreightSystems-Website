@@ -8,6 +8,11 @@ import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } f
 export default function FeaturesSection() {
     return (
         <section className="px-4 py-16 md:py-32">
+            <h2 className="mb-12 text-center text-4xl font-semibold lg:text-5xl">
+                Powerful Technology</h2>
+                <p className="mb-12 text-center text-lg text-muted-foreground">
+                    Our platform leverages cutting-edge technology to provide real-time tracking and seamless communication.
+                </p>
             <div className="mx-auto grid max-w-5xl border md:grid-cols-2">
                 <div>
                     <div className="p-6 sm:p-12">

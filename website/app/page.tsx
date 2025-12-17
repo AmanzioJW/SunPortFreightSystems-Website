@@ -4,7 +4,7 @@ import WhyChooseUs from './components/whychooseus';
 import Solutions from './components/services';
 import { ContentSection } from './components/solutionscta';
 import Technology from './components/technology';
-import NewsAndResources from './components/newsandresources';
+import SPFSMission from './components/spfs-mission';
 import Footer from './components/footer';
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         <Solutions />
         <ContentSection />
         <Technology />
-        <NewsAndResources />
+        <SPFSMission />
         <Footer />
     </div>
   );
