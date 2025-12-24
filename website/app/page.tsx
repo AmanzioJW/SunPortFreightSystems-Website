@@ -1,6 +1,7 @@
 import Header from './components/header';
 import { HeroSection } from './components/herosection';
 import WhyChooseUs from './components/whychooseus';
+import TrackSection from './components/tracksec';
 import Solutions from './components/services';
 import { ContentSection } from './components/solutionscta';
 import Technology from './components/technology';
@@ -12,6 +13,7 @@ export default function Home() {
         <Header />
         <HeroSection />
         <WhyChooseUs />
+        <TrackSection />
         <Solutions />
         <ContentSection />
         <Technology />
