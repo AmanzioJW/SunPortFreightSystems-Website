@@ -6,12 +6,13 @@ import SupplychainBackground from "./supplychain-components/supplychain-backgrou
 
 export default function Supplychain() {
     return (
-        <section>
-            <div className="pt-44">
-                <div className="mx-auto mb-12 max-w-5xl px-6">
-                    <div className="mx-auto max-w-3xl">
-                        <h1 className="text-balance text-5xl font-semibold sm:text-7xl">Pioneering the Medical AI Future</h1>
-                        <p className="text-muted-foreground ml-auto mt-6 max-w-md text-balance text-lg">With Tailark's personal AI, get your projects to the finish line faster and with context.</p>
+        <section className="u-pb-0">
+            <div className="u-vflex-stretch-top u-vgap-64-24">
+                <div className="w-layout-blockcontainer container w-container">
+                    <div className="row row-center-horizontal">
+                        <div className="col col-lg-8">
+                            <h2 className="u-align-center">Your best people are drowning in the least valuable work</h2>
+                        </div>
                     </div>
                 </div>
                 < SupplychainBackground />

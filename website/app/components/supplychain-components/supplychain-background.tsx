@@ -1,13 +1,14 @@
 export default function SupplychainBackground() {
   return (
-    <svg
-      width="1440"
-      height="1478"
-      viewBox="0 0 1440 1478"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="SupplychainBackground-svg"
-    >
+    <div className="flex justify-center w-full">
+      <svg
+        width="1440"
+        height="1478"
+        viewBox="0 0 1440 1478"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="SupplychainBackground-svg max-w-full h-auto"
+      >
       <defs>
         <clipPath id="clip0_21898_215">
           <rect width="595" height="111" transform="translate(845 1367)" fill="white" />
@@ -189,5 +190,6 @@ export default function SupplychainBackground() {
       <rect x="420.5" y="55.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-1 animate-[float-subtle_3s_ease-in-out_infinite]" />
       <rect x="872.5" y="84.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-3 animate-[float-subtle_3s_ease-in-out_infinite] [animation-delay:0.4s]" />
     </svg>
+    </div>
   );
 }
