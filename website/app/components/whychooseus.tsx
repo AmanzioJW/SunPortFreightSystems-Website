@@ -81,11 +81,11 @@ export default function WhyChooseSunPort() {
             Building the roots for your evolving supply chain needs.
           </h2>
           <p className="max-w-xl text-sm text-slate-300 sm:text-base">
-           Our mission is to deliver reliable, technology-driven freight solutions that bring 
-           visibility and control to every part of the supply chain. From day one, 
-           we strive to be a trusted partner—understanding each customer’s unique challenges, 
-           shaping services around their specific needs, and maintaining clear, honest 
-           communication throughout the entire process.
+            Our mission is to deliver reliable, technology-driven freight solutions that bring
+            visibility and control to every part of the supply chain. From day one,
+            we strive to be a trusted partner—understanding each customer’s unique challenges,
+            shaping services around their specific needs, and maintaining clear, honest
+            communication throughout the entire process.
           </p>
 
           <div className="mt-4 flex flex-wrap gap-3 text-xs sm:text-sm">

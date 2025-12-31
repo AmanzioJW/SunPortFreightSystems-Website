@@ -2,6 +2,7 @@ import Header from './components/header';
 import { HeroSection } from './components/herosection';
 import WhyChooseUs from './components/whychooseus';
 import Solutions from './components/services';
+import Supplychain from "./components/supplychain";
 import { ContentSection } from './components/solutionscta';
 import Technology from './components/technology';
 import SPFSMission from './components/spfs-mission';
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroSection />
         <WhyChooseUs />
         <Solutions />
+        <Supplychain />
         <ContentSection />
         <Technology />
         <SPFSMission />
