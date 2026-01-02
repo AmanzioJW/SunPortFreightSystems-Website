@@ -13,65 +13,86 @@ export default function SupplychainBackground() {
     // Create timeline for all animations
     const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: '.supply-chain-svg',
-        start: 'top center',
-        end: 'bottom center',
-        toggleActions: 'play none none none',
+        trigger: '.tracks_container',
+        start: '15% center',
+        end: 'bottom 65%',
+        scrub: 1.8,
       }
     });
 
-    // Animate green bars along paths with fade out
+    // Animate green bars along paths with staggered starts and separate fade
     timeline
       .to('#green-bar-1', {
         motionPath: {
           path: '#green-path-1',
           align: '#green-path-1',
-          alignOrigin: [0.5, 0.5]
+          alignOrigin: [0.5, 0.5],
+          autoRotate: 90
         },
         duration: 2,
-        opacity: 0,
-        ease: 'power2.inOut'
-      }, 0)
+        ease: 'none'
+      }, 0.01)
+      .to('#green-bar-1', {
+        autoAlpha: 0,
+        duration: 0.10
+      }, 1.71)
       .to('#green-bar-2', {
         motionPath: {
           path: '#green-path-2',
           align: '#green-path-2',
-          alignOrigin: [0.5, 0.5]
+          alignOrigin: [0.5, 0.5],
+          autoRotate: 90
         },
         duration: 2,
-        opacity: 0,
-        ease: 'power2.inOut'
-      }, 0)
+        ease: 'none'
+      }, 0.04)
+      .to('#green-bar-2', {
+        autoAlpha: 0,
+        duration: 0.10
+      }, 1.74)
       .to('#green-bar-3', {
         motionPath: {
           path: '#green-path-3',
           align: '#green-path-3',
-          alignOrigin: [0.5, 0.5]
+          alignOrigin: [0.5, 0.5],
+          autoRotate: 90
         },
         duration: 2,
-        opacity: 0,
-        ease: 'power2.inOut'
-      }, 0)
+        ease: 'none'
+      }, 0.03)
+      .to('#green-bar-3', {
+        autoAlpha: 0,
+        duration: 0.10
+      }, 1.73)
       .to('#green-bar-4', {
         motionPath: {
           path: '#green-path-4',
           align: '#green-path-4',
-          alignOrigin: [0.5, 0.5]
+          alignOrigin: [0.5, 0.5],
+          autoRotate: 90
         },
         duration: 2,
-        opacity: 0,
-        ease: 'power2.inOut'
-      }, 0)
-      // Animate red bar along path (no fade)
+        ease: 'none'
+      }, 0.02)
+      .to('#green-bar-4', {
+        autoAlpha: 0,
+        duration: 0.10
+      }, 1.72)
+      // Animate red bar along path with rotation and shift
       .to('#red-bar-element', {
         motionPath: {
           path: '#red-path',
           align: '#red-path',
-          alignOrigin: [0.5, 0.5]
+          alignOrigin: [0.5, 0.5],
+          autoRotate: 90
         },
         duration: 2,
-        ease: 'power2.inOut'
-      }, 0);
+        ease: 'none'
+      }, 0)
+      .to('#red-bar-element', {
+        yPercent: 50,
+        duration: 0.10
+      }, '>');
 
     // Cleanup
     return () => {
