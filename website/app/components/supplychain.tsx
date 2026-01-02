@@ -11,17 +11,15 @@ export default function Supplychain() {
                 <div className="w-layout-blockcontainer container w-container">
                     <div className="row row-center-horizontal">
                         <div className="col col-lg-8">
-                            <h2 className="u-align-center">Your best people are drowning in the least valuable work.</h2>
+                            <h2 className="u-align-center">Your best people are drowning in the least valuable work</h2>
                         </div>
                     </div>
                 </div>
-            <div className="tracks_container">
-                <div className="flex justify-center w-full">
-                    <div className="flex justify-center w-full">
-                        <SupplychainBackground />
+                <div className="tracks_container">
+                    <div className="tracks_middle">
                     </div>
+                    <SupplychainBackground />
                 </div>
-            </div>
             </div>
         </section>
     );

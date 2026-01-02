@@ -1,4 +1,84 @@
+"use client";
+
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+
 export default function SupplychainBackground() {
+  useEffect(() => {
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
+    // Create timeline for all animations
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.supply-chain-svg',
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: 'play none none none',
+      }
+    });
+
+    // Animate green bars along paths with fade out
+    timeline
+      .to('#green-bar-1', {
+        motionPath: {
+          path: '#green-path-1',
+          align: '#green-path-1',
+          alignOrigin: [0.5, 0.5]
+        },
+        duration: 2,
+        opacity: 0,
+        ease: 'power2.inOut'
+      }, 0)
+      .to('#green-bar-2', {
+        motionPath: {
+          path: '#green-path-2',
+          align: '#green-path-2',
+          alignOrigin: [0.5, 0.5]
+        },
+        duration: 2,
+        opacity: 0,
+        ease: 'power2.inOut'
+      }, 0)
+      .to('#green-bar-3', {
+        motionPath: {
+          path: '#green-path-3',
+          align: '#green-path-3',
+          alignOrigin: [0.5, 0.5]
+        },
+        duration: 2,
+        opacity: 0,
+        ease: 'power2.inOut'
+      }, 0)
+      .to('#green-bar-4', {
+        motionPath: {
+          path: '#green-path-4',
+          align: '#green-path-4',
+          alignOrigin: [0.5, 0.5]
+        },
+        duration: 2,
+        opacity: 0,
+        ease: 'power2.inOut'
+      }, 0)
+      // Animate red bar along path (no fade)
+      .to('#red-bar-element', {
+        motionPath: {
+          path: '#red-path',
+          align: '#red-path',
+          alignOrigin: [0.5, 0.5]
+        },
+        duration: 2,
+        ease: 'power2.inOut'
+      }, 0);
+
+    // Cleanup
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="flex justify-center w-full">
       <svg
@@ -7,7 +87,7 @@ export default function SupplychainBackground() {
         viewBox="0 0 1440 1478"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="SupplychainBackground-svg max-w-full h-auto"
+        className="supply-chain-svg"
       >
       <defs>
         <clipPath id="clip0_21898_215">
@@ -136,10 +216,10 @@ export default function SupplychainBackground() {
       </g>
 
       {/* Container bars */}
-      <rect x="140.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} className="animate-[float-gentle_4s_ease-in-out_infinite]" />
-      <rect x="128.5" y="98.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} className="animate-[float-gentle_4s_ease-in-out_infinite] [animation-delay:0.5s]" />
-      <rect x="180.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} className="animate-[float-gentle_4s_ease-in-out_infinite] [animation-delay:1s]" />
-      <rect x="210.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} className="animate-[float-gentle_4s_ease-in-out_infinite] [animation-delay:1.5s]" />
+      <rect x="140.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
+      <rect x="128.5" y="98.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
+      <rect x="180.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
+      <rect x="210.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="240.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="171.5" y="42.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="308.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
@@ -154,7 +234,7 @@ export default function SupplychainBackground() {
       <rect x="490.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="460.5" y="86.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="520.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
-      <rect x="547.5" y="77.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-2 animate-[float-subtle_3s_ease-in-out_infinite] [animation-delay:0.2s]" />
+      <rect x="547.5" y="77.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-2" id="green-bar-2" />
       <rect x="497.5" y="0.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="580.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="588.5" y="42.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
@@ -166,10 +246,10 @@ export default function SupplychainBackground() {
       <rect x="731.5" y="91.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="818.5" y="35.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="780.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
-      <rect x="752.5" y="5.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} className="animate-[float-gentle_4s_ease-in-out_infinite] [animation-delay:2s]" />
-      <rect x="812.5" y="67.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} className="animate-[float-gentle_4s_ease-in-out_infinite] [animation-delay:2.5s]" />
-      <rect x="840.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} className="animate-[float-gentle_4s_ease-in-out_infinite] [animation-delay:3s]" />
-      <rect x="880.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} className="animate-[float-gentle_4s_ease-in-out_infinite] [animation-delay:3.5s]" />
+      <rect x="752.5" y="5.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
+      <rect x="812.5" y="67.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
+      <rect x="840.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
+      <rect x="880.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="897.5" y="12.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="944.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="980.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
@@ -183,12 +263,12 @@ export default function SupplychainBackground() {
       <rect x="1180.5" y="65.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="1212.5" y="14.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="1220.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
-      <rect x="1003" y="94" width="20" height="111" fill="#FF5F02" style={{fill: '#FF5F02'}} className="red-bar animate-pulse" />
+      <rect x="1003" y="94" width="20" height="111" fill="#FF5F02" style={{fill: '#FF5F02'}} className="red-bar" id="red-bar-element" />
       <rect x="1260.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="1297.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
-      <rect x="936.5" y="68.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-4 animate-[float-subtle_3s_ease-in-out_infinite] [animation-delay:0.6s]" />
-      <rect x="420.5" y="55.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-1 animate-[float-subtle_3s_ease-in-out_infinite]" />
-      <rect x="872.5" y="84.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-3 animate-[float-subtle_3s_ease-in-out_infinite] [animation-delay:0.4s]" />
+      <rect x="936.5" y="68.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-4" id="green-bar-4" />
+      <rect x="420.5" y="55.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-1" id="green-bar-1" />
+      <rect x="872.5" y="84.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-3" id="green-bar-3" />
     </svg>
     </div>
   );
