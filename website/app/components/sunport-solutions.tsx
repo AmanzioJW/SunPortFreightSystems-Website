@@ -3,6 +3,11 @@
 import { useState, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@/app/lib/css-modules';
+import gridStyles from '@/app/styles/shared/grid.module.css';
+import utilityStyles from '@/app/styles/shared/utilities.module.css';
+import typographyStyles from '@/app/styles/shared/typography.module.css';
+import styles from './sunport-solutions.module.css';
 
 interface Tab {
   id: string;
@@ -63,16 +68,16 @@ export default function SunportSolutions() {
     }, []);
 
     return (
-        <section className="home_product section u-theme-dark">
-            <div className="w-layout-blockcontainer tab_container container w-container">
-                <div className="row u-h-100">
-                    <div className="col col-lg-6 col-md-5 col-sm-12 u-z-index-1">
-                        <div className="u-vflex-stretch-between u-vgap-32 u-h-100">
-                            <div className="u-vflex-left-top u-vgap-24-16">
-                                <h2 className="eyebrow u-color-secondary">product</h2>
-                                <p className="h2">A complete platform to elevate your team from quote to cash</p>
+        <section className={cn(styles.home_product, gridStyles.section, utilityStyles['u-theme-dark'])}>
+            <div className={cn(gridStyles['w-layout-blockcontainer'], styles.tab_container, gridStyles.container, gridStyles['w-container'])}>
+                <div className={cn(gridStyles.row, utilityStyles['u-h-100'])}>
+                    <div className={cn(gridStyles.col, gridStyles['col-lg-6'], gridStyles['col-md-5'], gridStyles['col-sm-12'], utilityStyles['u-z-index-1'])}>
+                        <div className={cn(utilityStyles['u-vflex-stretch-between'], utilityStyles['u-vgap-32'], utilityStyles['u-h-100'])}>
+                            <div className={cn(utilityStyles['u-vflex-left-top'], utilityStyles['u-vgap-24-16'])}>
+                                <h2 className={cn(typographyStyles.eyebrow, utilityStyles['u-color-secondary'])}>product</h2>
+                                <p className={typographyStyles.h2}>A complete platform to elevate your team from quote to cash</p>
                             </div>
-                            <div role="tablist" className="u-vflex-stretch-bottom">
+                            <div role="tablist" className={utilityStyles['u-vflex-stretch-bottom']}>
                                 {TABS.map((tab, index) => (
                                     <button
                                         key={tab.id}
@@ -81,22 +86,26 @@ export default function SunportSolutions() {
                                         aria-controls={`panel-${tab.id}`}
                                         id={`tab-${tab.id}`}
                                         onClick={() => setActiveTab(index)}
-                                        className={`tab-content__item w-inline-block ${activeTab === index ? 'active' : ''}`}
+                                        className={cn(
+                                            styles['tab-content__item'],
+                                            utilityStyles['w-inline-block'],
+                                            activeTab === index && styles.active
+                                        )}
                                     >
-                                        <div className="tab-content__item-main">
-                                            <h2 className="h6">{tab.title}</h2>
+                                        <div className={styles['tab-content__item-main']}>
+                                            <h2 className={typographyStyles.h6}>{tab.title}</h2>
                                         </div>
-                                        <div className="tab-content__item-detail">
-                                            <p className="u-color-secondary u-pt-0-5">{tab.description}</p>
+                                        <div className={styles['tab-content__item-detail']}>
+                                            <p className={cn(utilityStyles['u-color-secondary'], utilityStyles['u-pt-0-5'])}>{tab.description}</p>
                                         </div>
-                                        <div className="u-sr-only" style={{translate: 'none', rotate: 'none', scale: 'none', transformOrigin: '0% 50%', transform: activeTab === index ? 'scale(1, 1)' : 'scale(0, 1)'}}></div>
+                                        <div className={utilityStyles['u-sr-only']} style={{translate: 'none', rotate: 'none', scale: 'none', transformOrigin: '0% 50%', transform: activeTab === index ? 'scale(1, 1)' : 'scale(0, 1)'}}></div>
                                     </button>
                                 ))}
                             </div>
                         </div>
                     </div>
-                    <div className="col col-lg-6 col-md-7 col-sm-12">
-                        <div aria-live="polite" role="region" className="tab-visual__wrap">
+                    <div className={cn(gridStyles.col, gridStyles['col-lg-6'], gridStyles['col-md-7'], gridStyles['col-sm-12'])}>
+                        <div aria-live="polite" role="region" className={styles['tab-visual__wrap']}>
                             <AnimatePresence mode="wait">
                                 {TABS.map((tab, index) =>
                                     activeTab === index ? (
@@ -105,7 +114,7 @@ export default function SunportSolutions() {
                                             id={`panel-${tab.id}`}
                                             role="tabpanel"
                                             aria-labelledby={`tab-${tab.id}`}
-                                            className="tab-visual__item active"
+                                            className={cn(styles['tab-visual__item'], styles.active)}
                                             style={{
                                                 position: 'absolute',
                                                 inset: 0,
@@ -120,7 +129,7 @@ export default function SunportSolutions() {
                                                 ease: [0.19, 1.0, 0.22, 1.0]
                                             }}
                                         >
-                                            <div className="tab-image">
+                                            <div className={styles['tab-image']}>
                                                 {isLoading && (
                                                     <div className="animate-pulse bg-gray-200 w-full h-full rounded" />
                                                 )}

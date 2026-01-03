@@ -1,0 +1,37 @@
+/* Typography */
+/* Auto-generated from globals.css.backup */
+
+.eyebrow {
+    font-family: var(--_typography---eyebrow--font);
+    font-size: var(--_typography---eyebrow--font-size);
+    line-height: var(--_typography---eyebrow--line-height);
+    font-variation-settings: "mono" 100,"ital" 0;
+    font-weight: var(--_typography---eyebrow--font-weight);
+    letter-spacing: var(--_typography---eyebrow--letter-spacing);
+    text-transform: uppercase;
+    text-wrap: balance;
+    margin-top: 0;
+    margin-bottom: -2px
+}
+
+.h2 {
+    font-family: var(--_typography---heading-2--font);
+    font-size: var(--_typography---heading-2--font-size-lg);
+    line-height: var(--_typography---heading-2--line-height);
+    font-weight: var(--_typography---heading-2--font-weight);
+    letter-spacing: var(--_typography---heading-2--letter-spacing);
+    text-wrap: balance;
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.h6 {
+    font-family: var(--_typography---heading-6--font-family);
+    font-size: var(--_typography---heading-6--font-size-lg);
+    line-height: var(--_typography---heading-6--line-height);
+    font-weight: var(--_typography---heading-6--font-weight);
+    letter-spacing: var(--_typography---heading-5--letter-spacing);
+    text-wrap: balance;
+    margin-top: 0;
+    margin-bottom: 0
+}
