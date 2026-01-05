@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import styles from './supplychain-background.module.css';
 
 export default function SupplychainBackground() {
   useEffect(() => {
@@ -14,7 +13,7 @@ export default function SupplychainBackground() {
     // Create timeline for all animations
     const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: '[data-gsap-trigger="tracks-container"]',
+        trigger: '.tracks_container',
         start: '15% center',
         end: 'bottom 65%',
         scrub: 1.8,
@@ -109,7 +108,7 @@ export default function SupplychainBackground() {
         viewBox="0 0 1440 1478"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={styles['supply-chain-svg']}
+        className="supply-chain-svg"
       >
       <defs>
         <clipPath id="clip0_21898_215">
@@ -256,7 +255,7 @@ export default function SupplychainBackground() {
       <rect x="490.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="460.5" y="86.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="520.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
-      <rect x="547.5" y="77.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className={`${styles['green-bar']} cc-2`} id="green-bar-2" />
+      <rect x="547.5" y="77.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-2" id="green-bar-2" />
       <rect x="497.5" y="0.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="580.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="588.5" y="42.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
@@ -288,9 +287,9 @@ export default function SupplychainBackground() {
       <rect x="1003" y="94" width="20" height="111" fill="#FF5F02" style={{fill: '#FF5F02'}} className="red-bar" id="red-bar-element" />
       <rect x="1260.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
       <rect x="1297.5" y="55.5" width="19" height="110" fill="#E6E6D1" stroke="#B5B9A6" style={{fill: '#E6E6D1', stroke: '#B5B9A6'}} />
-      <rect x="936.5" y="68.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className={`${styles['green-bar']} cc-4`} id="green-bar-4" />
-      <rect x="420.5" y="55.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className={`${styles['green-bar']} cc-1`} id="green-bar-1" />
-      <rect x="872.5" y="84.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className={`${styles['green-bar']} cc-3`} id="green-bar-3" />
+      <rect x="936.5" y="68.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-4" id="green-bar-4" />
+      <rect x="420.5" y="55.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-1" id="green-bar-1" />
+      <rect x="872.5" y="84.5" width="19" height="110" fill="#D0FFA8" stroke="#B5B9A6" style={{fill: '#D0FFA8', stroke: '#B5B9A6'}} className="green-bar cc-3" id="green-bar-3" />
     </svg>
     </div>
   );
