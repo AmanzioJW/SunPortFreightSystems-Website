@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import styles from '../../styles/SunportSolutions.module.css';
 
 interface Tab {
   id: string;
@@ -63,16 +64,24 @@ export default function SunportSolutions() {
     }, []);
 
     return (
-        <section className="home_product section u-theme-dark">
-            <div className="w-layout-blockcontainer tab_container container w-container">
-                <div className="row u-h-100">
-                    <div className="col col-lg-6 col-md-5 col-sm-12 u-z-index-1">
-                        <div className="u-vflex-stretch-between u-vgap-32 u-h-100">
-                            <div className="u-vflex-left-top u-vgap-24-16">
-                                <h2 className="eyebrow u-color-secondary">product</h2>
-                                <p className="h2">A complete platform to elevate your team from quote to cash</p>
+        <section className={styles.section}>
+            <div className={styles.container}>
+                <div className={styles.row}>
+                    {/* Left Column - Content */}
+                    <div className={`${styles.col} ${styles.colLg6} ${styles.colMd5} ${styles.colSm12} ${styles.zIndex1}`}>
+                        <div className={`${styles.vflexStretchBetween} ${styles.vgap32} ${styles.h100}`}>
+                            {/* Header Section */}
+                            <div className={`${styles.vflexLeftTop} ${styles.vgap24_16}`}>
+                                <h2 className={`${styles.eyebrow} ${styles.colorSecondary}`}>
+                                    product
+                                </h2>
+                                <p className={styles.h2}>
+                                    A complete platform to elevate your team from quote to cash
+                                </p>
                             </div>
-                            <div role="tablist" className="u-vflex-stretch-bottom">
+
+                            {/* Tabs Section */}
+                            <div role="tablist" className={styles.vflexStretchBottom}>
                                 {TABS.map((tab, index) => (
                                     <button
                                         key={tab.id}
@@ -81,22 +90,39 @@ export default function SunportSolutions() {
                                         aria-controls={`panel-${tab.id}`}
                                         id={`tab-${tab.id}`}
                                         onClick={() => setActiveTab(index)}
-                                        className={`tab-content__item w-inline-block ${activeTab === index ? 'active' : ''}`}
+                                        className={`${styles.tabContentItem} ${styles.inlineBlock} ${activeTab === index ? styles.active : ''}`}
                                     >
-                                        <div className="tab-content__item-main">
-                                            <h2 className="h6">{tab.title}</h2>
+                                        <div className={styles.tabContentItemMain}>
+                                            <h3 className={styles.h6}>{tab.title}</h3>
                                         </div>
-                                        <div className="tab-content__item-detail">
-                                            <p className="u-color-secondary u-pt-0-5">{tab.description}</p>
+                                        <div className={styles.tabContentItemDetail}>
+                                            <p className={`${styles.colorSecondary} ${styles.pt05}`}>
+                                                {tab.description}
+                                            </p>
                                         </div>
-                                        <div className="u-sr-only" style={{translate: 'none', rotate: 'none', scale: 'none', transformOrigin: '0% 50%', transform: activeTab === index ? 'scale(1, 1)' : 'scale(0, 1)'}}></div>
+                                        <div 
+                                            className={styles.srOnly}
+                                            style={{
+                                                translate: 'none',
+                                                rotate: 'none',
+                                                scale: 'none',
+                                                transformOrigin: '0% 50%',
+                                                transform: activeTab === index ? 'scale(1, 1)' : 'scale(0, 1)'
+                                            }}
+                                        />
                                     </button>
                                 ))}
                             </div>
                         </div>
                     </div>
-                    <div className="col col-lg-6 col-md-7 col-sm-12">
-                        <div aria-live="polite" role="region" className="tab-visual__wrap">
+
+                    {/* Right Column - Animation */}
+                    <div className={`${styles.col} ${styles.colLg6} ${styles.colMd7} ${styles.colSm12}`}>
+                        <div 
+                            aria-live="polite" 
+                            role="region" 
+                            className={styles.tabVisualWrap}
+                        >
                             <AnimatePresence mode="wait">
                                 {TABS.map((tab, index) =>
                                     activeTab === index ? (
@@ -105,7 +131,7 @@ export default function SunportSolutions() {
                                             id={`panel-${tab.id}`}
                                             role="tabpanel"
                                             aria-labelledby={`tab-${tab.id}`}
-                                            className="tab-visual__item active"
+                                            className={`${styles.tabVisualItem} ${styles.active}`}
                                             style={{
                                                 position: 'absolute',
                                                 inset: 0,
@@ -120,12 +146,20 @@ export default function SunportSolutions() {
                                                 ease: [0.19, 1.0, 0.22, 1.0]
                                             }}
                                         >
-                                            <div className="tab-image">
+                                            <div className={styles.tabImage}>
                                                 {isLoading && (
-                                                    <div className="animate-pulse bg-gray-200 w-full h-full rounded" />
+                                                    <div style={{
+                                                        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                                                        backgroundColor: '#374151',
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        borderRadius: '0.25rem'
+                                                    }} />
                                                 )}
                                                 {loadError && (
-                                                    <p className="text-sm text-gray-500">Animation unavailable</p>
+                                                    <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
+                                                        Animation unavailable
+                                                    </p>
                                                 )}
                                                 {!isLoading && !loadError && animationData[index] && (
                                                     <Lottie
