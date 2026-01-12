@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from '../../styles/SunportSolutions.module.css';
+import styles from '@/app/components/styles/SunportSolutions.module.css';
+import '@/app/components/styles/Sunport-solutions-globals.css';
 
 interface Tab {
   id: string;
@@ -63,66 +64,48 @@ export default function SunportSolutions() {
         fetchAnimations();
     }, []);
 
-    return (
-        <section className={styles.section}>
-            <div className={styles.container}>
-                <div className={styles.row}>
-                    {/* Left Column - Content */}
-                    <div className={`${styles.col} ${styles.colLg6} ${styles.colMd5} ${styles.colSm12} ${styles.zIndex1}`}>
-                        <div className={`${styles.vflexStretchBetween} ${styles.vgap32} ${styles.h100}`}>
-                            {/* Header Section */}
-                            <div className={`${styles.vflexLeftTop} ${styles.vgap24_16}`}>
-                                <h2 className={`${styles.eyebrow} ${styles.colorSecondary}`}>
-                                    product
-                                </h2>
-                                <p className={styles.h2}>
-                                    A complete platform to elevate your team from quote to cash
-                                </p>
-                            </div>
+    const handleTabClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number) => {
+        e.preventDefault();
+        setActiveTab(index);
+    };
 
-                            {/* Tabs Section */}
-                            <div role="tablist" className={styles.vflexStretchBottom}>
+    return (
+        <section className={`${styles['home_product']} ${styles['section']} ${styles['u-theme-dark']}`}>
+            <div className={`${styles['w-layout-blockcontainer']} ${styles['tab_container']} ${styles['container']} ${styles['w-container']}`}>
+                <div className={`${styles['row']} ${styles['u-h-100']}`}>
+                    <div className={`${styles['col']} ${styles['col-lg-6']} ${styles['col-md-5']} ${styles['col-sm-12']} ${styles['u-z-index-1']}`}>
+                        <div className={`${styles['u-vflex-stretch-between']} ${styles['u-vgap-32']} ${styles['u-h-100']}`}>
+                            <div className={`${styles['u-vflex-left-top']} ${styles['u-vgap-24-16']}`}>
+                                <h2 className={`${styles['eyebrow']} ${styles['u-color-secondary']}`}>product</h2>
+                                <p className={styles['h2']}>A complete platform to elevate your team from quote to cash</p>
+                            </div>
+                            <div role="tablist" className={styles['u-vflex-stretch-bottom']}>
                                 {TABS.map((tab, index) => (
-                                    <button
+                                    <a
                                         key={tab.id}
                                         role="tab"
+                                        href="#"
+                                        data-tabs="content-item"
                                         aria-selected={activeTab === index}
                                         aria-controls={`panel-${tab.id}`}
                                         id={`tab-${tab.id}`}
-                                        onClick={() => setActiveTab(index)}
-                                        className={`${styles.tabContentItem} ${styles.inlineBlock} ${activeTab === index ? styles.active : ''}`}
+                                        onClick={(e) => handleTabClick(e, index)}
+                                        className={`${styles['tab-content__item']} ${styles['w-inline-block']} ${activeTab === index ? styles['active'] : ''}`}
                                     >
-                                        <div className={styles.tabContentItemMain}>
-                                            <h3 className={styles.h6}>{tab.title}</h3>
+                                        <div className={styles['tab-content__item-main']}>
+                                            <h2 className={styles['h6']}>{tab.title}</h2>
                                         </div>
-                                        <div className={styles.tabContentItemDetail}>
-                                            <p className={`${styles.colorSecondary} ${styles.pt05}`}>
-                                                {tab.description}
-                                            </p>
+                                        <div data-tabs="item-details" className={`${styles['tab-content__item-detail']} ${activeTab === index ? styles['active'] : ''}`}>
+                                            <p className={`${styles['u-color-secondary']} ${styles['u-pt-0-5']}`}>{tab.description}</p>
                                         </div>
-                                        <div 
-                                            className={styles.srOnly}
-                                            style={{
-                                                translate: 'none',
-                                                rotate: 'none',
-                                                scale: 'none',
-                                                transformOrigin: '0% 50%',
-                                                transform: activeTab === index ? 'scale(1, 1)' : 'scale(0, 1)'
-                                            }}
-                                        />
-                                    </button>
+                                        <div data-tabs="item-progress" className={styles['u-sr-only']}></div>
+                                    </a>
                                 ))}
                             </div>
                         </div>
                     </div>
-
-                    {/* Right Column - Animation */}
-                    <div className={`${styles.col} ${styles.colLg6} ${styles.colMd7} ${styles.colSm12}`}>
-                        <div 
-                            aria-live="polite" 
-                            role="region" 
-                            className={styles.tabVisualWrap}
-                        >
+                    <div className={`${styles['col']} ${styles['col-lg-6']} ${styles['col-md-7']} ${styles['col-sm-12']}`}>
+                        <div aria-live="polite" role="region" className={styles['tab-visual__wrap']}>
                             <AnimatePresence mode="wait">
                                 {TABS.map((tab, index) =>
                                     activeTab === index ? (
@@ -131,7 +114,7 @@ export default function SunportSolutions() {
                                             id={`panel-${tab.id}`}
                                             role="tabpanel"
                                             aria-labelledby={`tab-${tab.id}`}
-                                            className={`${styles.tabVisualItem} ${styles.active}`}
+                                            className={`${styles['tab-visual__item']} ${styles['active']}`}
                                             style={{
                                                 position: 'absolute',
                                                 inset: 0,
@@ -146,20 +129,12 @@ export default function SunportSolutions() {
                                                 ease: [0.19, 1.0, 0.22, 1.0]
                                             }}
                                         >
-                                            <div className={styles.tabImage}>
+                                            <div className={styles['tab-image']}>
                                                 {isLoading && (
-                                                    <div style={{
-                                                        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                                                        backgroundColor: '#374151',
-                                                        width: '100%',
-                                                        height: '100%',
-                                                        borderRadius: '0.25rem'
-                                                    }} />
+                                                    <div className="animate-pulse bg-gray-200 w-full h-full rounded" />
                                                 )}
                                                 {loadError && (
-                                                    <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
-                                                        Animation unavailable
-                                                    </p>
+                                                    <p className="text-sm text-gray-500">Animation unavailable</p>
                                                 )}
                                                 {!isLoading && !loadError && animationData[index] && (
                                                     <Lottie
