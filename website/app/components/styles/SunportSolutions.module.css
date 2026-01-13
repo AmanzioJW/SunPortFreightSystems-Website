@@ -1,3 +1,215 @@
+/* ============================================
+   SunportSolutions.module.css - SELF-CONTAINED
+   ============================================
+   This file combines:
+   1. @font-face for Fkgrotesk
+   2. :root CSS variables  
+   3. All component classes
+   
+   NO global element styles (html, body, h1-h6, p, a, etc.)
+   ============================================ */
+
+@font-face {
+    font-family: Fkgrotesk;
+    src: url(https://cdn.prod.website-files.com/68ed090d0998c3c224a59e7c/691500412e6f96ee08cbc277_FKGrotesk.woff2)format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap
+}
+
+:root {
+    --background--primary: var(--_colors---all--neutral--200);
+    --_typography---body--font: var(--_typography---font-families--sans);
+    --text--primary: var(--_colors---all--neutral--900);
+    --_typography---body--font-size: var(--_static-spacing---rems--1rem);
+    --_typography---body--line-height: 1.5;
+    --_typography---body--font-weight: var(--_typography---weight--regular);
+    --_typography---body--letter-spacing: 0em;
+    --_typography---heading-1--font: var(--_typography---font-families--sans);
+    --_typography---heading-1--font-size: clamp(var(--_static-spacing---rems--2-5rem),3.05vw + 1.76rem,var(--_static-spacing---rems--4-5rem));
+    --_typography---heading-1--line-height: 1.08;
+    --_typography---heading-1--font-weight: var(--_typography---weight--medium);
+    --_typography---heading-1--letter-spacing: -.03em;
+    --_typography---heading-2--font: var(--_typography---font-families--sans);
+    --_typography---heading-2--font-size-lg: clamp(var(--_static-spacing---rems--2rem),2.29vw + 1.44rem,var(--_static-spacing---rems--3-5rem));
+    --_typography---heading-2--line-height: 1.1;
+    --_typography---heading-2--font-weight: var(--_typography---weight--medium);
+    --_typography---heading-2--letter-spacing: -.03em;
+    --_typography---heading-3--font: var(--_typography---font-families--sans);
+    --_typography---heading-3--font-size-lg: clamp(var(--_static-spacing---rems--1-5rem),1.52vw + 1.13rem,var(--_static-spacing---rems--2-5rem));
+    --_typography---heading-3--line-height: 1.05;
+    --_typography---heading-3--font-weight: var(--_typography---weight--medium);
+    --_typography---heading-3--letter-spacing: -.03em;
+    --_typography---heading-4--font: var(--_typography---font-families--sans);
+    --_typography---heading-4--font-size-lg: clamp(var(--_static-spacing---rems--1-25rem),1.14vw + .97rem,var(--_static-spacing---rems--2rem));
+    --_typography---heading-4--line-height: 1.1;
+    --_typography---heading-4--font-weight: var(--_typography---weight--medium);
+    --_typography---heading-4--letter-spacing: 0em;
+    --_typography---heading-5--font-family: var(--_typography---font-families--sans);
+    --_typography---heading-5--font-size-lg: clamp(var(--_static-spacing---rems--1rem),.76vw + .81rem,var(--_static-spacing---rems--1-5rem));
+    --_typography---heading-5--line-height: 1.2;
+    --_typography---heading-5--font-weight: var(--_typography---weight--medium);
+    --_typography---heading-5--letter-spacing: -.03em;
+    --_typography---heading-6--font-family: var(--_typography---font-families--sans);
+    --_typography---heading-6--font-size-lg: clamp(var(--_static-spacing---rems--0-875rem),.38vw + .78rem,var(--_static-spacing---rems--1-125rem));
+    --_typography---heading-6--line-height: 1.2;
+    --_typography---heading-6--font-weight: var(--_typography---weight--medium);
+    --_typography---heading-6--letter-spacing: -.03em;
+    --_typography---heading-6--font-size-md\<deleted\|variable-e025aed1-7246-5b38-dccf-4c6f24e4fc52\>: var(--_static-spacing---rems--1rem);
+    --_typography---heading-6--font-size-sm\<deleted\|variable-5e7a2736-fc18-ea8f-08ff-ea670098506f\>: var(--_static-spacing---rems--1rem);
+    --_typography---heading-6--font-size-xs\<deleted\|variable-ee4b9918-e3fd-2c75-e841-df7b701f1064\>: var(--_static-spacing---rems--1rem);
+    --_colors---teal--800: #072c2c;
+    --_typography---weight--medium: 500;
+    --_layout---section--padding: clamp(var(--_static-spacing---rems--4rem),6.11vw + 2.5rem,var(--_static-spacing---rems--8rem));
+    --_layout---container--width: calc(100% - var(--_layout---columns--size)*2);
+    --_layout---container--max-width: 90rem;
+    --_layout---columns--negative-gutter: calc(var(--_layout---columns--gutter)*-1);
+    --_layout---columns--size: var(--_variable-spacing---24-16);
+    --_layout---columns--gutter: calc(var(--_layout---columns--size)/2);
+    --_components---button--vertical-padding: var(--_static-spacing---rems--1-25rem);
+    --_components---button--horizontal-padding: var(--_static-spacing---rems--1-5rem);
+    --_static-spacing---rems--0-5rem: .5rem;
+    --button-primary--border: var(--button-primary--background);
+    --_components---button--border-radius: var(--_static-spacing---rems--0rem);
+    --button-primary--background: var(--background--brand);
+    --_components---button--font: var(--_typography---eyebrow--font);
+    --button-primary--text: var(--text--primary);
+    --_components---button--font-size: var(--_typography---eyebrow--font-size);
+    --_components---button--line-height: 1;
+    --_components---button--font-weight: var(--_typography---eyebrow--font-weight);
+    --_components---button--letter-spacing: var(--_typography---eyebrow--letter-spacing);
+    --button-secondary--border: var(--button-primary--text);
+    --button-secondary--background: color-mix(in hsl,var(--_colors---all--neutral--900)0%,Transparent 100%);
+    --button-secondary--text: var(--text--primary);
+    --_static-spacing---rems--0-75rem: .75rem;
+    --_static-spacing---rems--1rem: 1rem;
+    --background--invert: var(--_colors---all--neutral--900);
+    --text--invert: var(--_colors---all--neutral--200);
+    --button-primary--border-hover: color-mix(in hsl,var(--_colors---all--neutral--100)25%,var(--background--brand));
+    --button-primary--background-hover: color-mix(in hsl,var(--_colors---all--neutral--100)25%,var(--background--brand));
+    --button-primary--text-hover: var(--text--primary);
+    --button-secondary--border-hover: var(--button-secondary--border);
+    --button-secondary--background-hover: var(--button-primary--text);
+    --button-secondary--text-hover: var(--text--invert);
+    --_static-spacing---rems--3rem: 3rem;
+    --_static-spacing---rems--1-5rem: 1.5rem;
+    --card--card-body-padding-sm\<deleted\|variable-886aa6f6-843b-26b9-170b-96cc08ca36e2\>: var(--_static-spacing---rems--1-25rem);
+    --_components---input-field--bottom-margin: 1rem;
+    --_static-spacing---rems--0rem: 0rem;
+    --_components---input-field--min-height: var(--_static-spacing---rems--3rem);
+    --background--secondary: var(--_colors---all--neutral--300);
+    --_components---input-field--text-area-min-height: var(--_static-spacing---rems--8rem);
+    --text--tertiary: var(--_colors---all--neutral--500);
+    --text--secondary: var(--_colors---all--neutral--700);
+    --_components---input-field--horizontal-margin: var(--_static-spacing---rems--1rem);
+    --background--border: var(--_colors---all--neutral--500);
+    --_components---input-field--border-radius: var(--_static-spacing---rems--0rem);
+    --_components---input-field--font: var(--_typography---font-families--sans);
+    --_components---input-field--font-size: var(--_static-spacing---rems--1rem);
+    --_components---input-field--line-height: 1;
+    --_components---input-field--font-weight: var(--_typography---weight--regular);
+    --_components---input-field--letter-spacing: 0em;
+    --background--brand: var(--_colors---orange--600);
+    --_colors---all--neutral--100: white;
+    --_components---input-label--font: var(--_typography---font-families--sans);
+    --_components---input-label--font-size: var(--_static-spacing---rems--1rem);
+    --_components---input-label--line-height: 1;
+    --_components---input-label--font-weight: var(--_typography---weight--regular);
+    --_components---input-label--letter-spacing: 0em;
+    --_colors---teal--600: #499593;
+    --colors-all--mid-gray\<deleted\|variable-65f33ecd\>: #888680;
+    --colors-all--light-gray\<deleted\|variable-f16457a0\>: #dfddd6;
+    --_typography---eyebrow--font: var(--_typography---font-families--sans);
+    --_typography---eyebrow--font-size: clamp(.62rem,.19vw + .58rem,var(--_static-spacing---rems--0-75rem));
+    --_typography---eyebrow--line-height: 1;
+    --_typography---eyebrow--font-weight: var(--_typography---weight--medium);
+    --_typography---eyebrow--letter-spacing: .1em;
+    --_typography---type-paragraph-20--font\<deleted\|variable-a848acae-7eae-7deb-9c06-8be3c818ac82\>: var(--_typography---body--font);
+    --_typography---type-paragraph-20--font-size\<deleted\|variable-56b674c1-15ea-fc04-91a8-c04804107946\>: var(--_static-spacing---rems--1-25rem);
+    --_typography---type-paragraph-20--line-height\<deleted\|variable-4c287dfd-4134-f3f3-a3d8-6d5c12f0ec77\>: 1.5;
+    --_typography---type-paragraph-20--font-weight\<deleted\|variable-c3e34ed3-17e2-f0ec-01a9-0a3a5f78f8b4\>: var(--_typography---body--font-weight);
+    --_typography---type-paragraph-20--letter-spacing\<deleted\|variable-0c0640c5-a2ca-ed9b-dff5-62e86166f578\>: var(--_typography---body--letter-spacing);
+    --_colors---all--neutral--900: black;
+    --_static-spacing---rems--2rem: 2rem;
+    --_typography---heading-1--bottom-margin: .2em;
+    --_typography---heading-5--bottom-margin: 1em;
+    --_typography---heading-6--bottom-margin: 1em;
+    --_typography---paragraph--bottom-margin: 2em;
+    --_typography---paragraph--font-size-lg: var(--_typography---body--font-size);
+    --_typography---paragraph--line-height: var(--_typography---body--line-height);
+    --_typography---paragraph--letter-spacing: var(--_typography---body--letter-spacing);
+    --spacing-utility-em--2em\<deleted\|variable-742de17a-686c-7202-bd6d-c1f5bb7c5526\>: 2em;
+    --_variable-spacing---48-24: clamp(var(--_static-spacing---rems--1-5rem),2.29vw + .94rem,var(--_static-spacing---rems--3rem));
+    --_static-spacing---rems--6rem: 6rem;
+    --type-paragraph-20--font-size-md\<deleted\|variable-cdbe9950-9272-2284-ccf6-60cab96acd5f\>: var(--_static-spacing---rems--1-25rem);
+    --type-paragraph-20--font-size-sm\<deleted\|variable-841c9cf1-74b8-7850-db1d-b82cdc8d3013\>: var(--_static-spacing---rems--1-25rem);
+    --type-paragraph-20--font-size-xs\<deleted\|variable-dab72a89-1875-a2f7-1d85-bd05f81dd817\>: 1.25rem;
+    --spacing-utility-em--1em\<deleted\|variable-24fe3751-5502-3b27-82f9-faa460d521d3\>: 1em;
+    --_typography---type-paragraph-14--font-size-lg\<deleted\|variable-b47ae53f-0904-8110-9e19-acac2f895f1a\>: var(--_static-spacing---rems--0-875rem);
+    --type-paragraph-14--font-size-md\<deleted\|variable-94c5336e-6e13-9026-329b-a7b4ba64e183\>: var(--_static-spacing---rems--0-875rem);
+    --type-paragraph-14--font-size-sm\<deleted\|variable-dce65071-f183-75c5-98aa-d8afc83560a0\>: var(--_static-spacing---rems--0-875rem);
+    --type-paragraph-14--font-size-xs\<deleted\|variable-5ffbcc90-83d8-60d2-b7ba-601684d03f16\>: var(--_static-spacing---rems--0-875rem);
+    --_typography---paragraph--font-size-sm: var(--_static-spacing---rems--0-875rem);
+    --_typography---weight--regular: 400;
+    --_typography---weight--semibold: 600;
+    --_typography---weight--bold: 700;
+    --_typography---weight--extra-bold: 800;
+    --_typography---weight--black: 900;
+    --_typography---weight--thin: 100;
+    --_typography---weight--extra-light: 200;
+    --_typography---weight--light: 300;
+    --_static-spacing---rems--2-5rem: 2.5rem;
+    --_static-spacing---rems--4rem: 4rem;
+    --_variable-spacing---48-40: clamp(var(--_static-spacing---rems--2-5rem),.76vw + 2.31rem,var(--_static-spacing---rems--3rem));
+    --_typography---paragraph--font: var(--_typography---body--font);
+    --_typography---paragraph--font-weight: var(--_typography---body--font-weight);
+    --_custom---nav-height: clamp(var(--_static-spacing---rems--3-5rem),3.43vw + 2.66rem,5.75rem);
+    --text--invert-secondary: var(--_colors---all--neutral--500);
+    --_static-spacing---rems--1-25rem: 1.25rem;
+    --_static-spacing---rems--0-25rem: .25rem;
+    --_static-spacing---rems--3-5rem: 3.5rem;
+    --_variable-spacing---24-16: clamp(var(--_static-spacing---rems--1rem),.76vw + .81rem,var(--_static-spacing---rems--1-5rem));
+    --_variable-spacing---64-32: clamp(var(--_static-spacing---rems--2rem),3.05vw + 1.26rem,var(--_static-spacing---rems--4rem));
+    --_variable-spacing---64-24: clamp(var(--_static-spacing---rems--1-5rem),3.81vw + .57rem,var(--_static-spacing---rems--4rem));
+    --_static-spacing---rems--5rem: 5rem;
+    --_static-spacing---rems--0-875rem: .875rem;
+    --_colors---teal--700: #255453;
+    --_variable-spacing---32-16: clamp(var(--_static-spacing---rems--1rem),1.52vw + .63rem,var(--_static-spacing---rems--2rem));
+    --_variable-spacing---16-12: clamp(var(--_static-spacing---rems--0-75rem),.38vw + .66rem,var(--_static-spacing---rems--1rem));
+    --_variable-spacing---32-24: clamp(var(--_static-spacing---rems--1-5rem),.76vw + 1.31rem,var(--_static-spacing---rems--2rem));
+    --_variable-spacing---96-64: clamp(var(--_static-spacing---rems--4rem),3.05vw + 3.26rem,var(--_static-spacing---rems--6rem));
+    --_colors---all--neutral--300: #e6e6d1;
+    --_variable-spacing---32-12: clamp(var(--_static-spacing---rems--0-75rem),1.9vw + .29rem,var(--_static-spacing---rems--2rem));
+    --_colors---green--200: #d0ffa8;
+    --_static-spacing---rems--8rem: 8rem;
+    --_typography---paragraph--font-size-xl: var(--_static-spacing---rems--1-25rem);
+    --_typography---paragraph--font-size-xs: var(--_static-spacing---rems--0-75rem);
+    --_variable-spacing---64-48: clamp(var(--_static-spacing---rems--3rem),1.52vw + 2.63rem,var(--_static-spacing---rems--4rem));
+    --_variable-spacing---48-16: clamp(var(--_static-spacing---rems--1rem),3.05vw + .26rem,var(--_static-spacing---rems--3rem));
+    --_colors---teal--300: #7de1df;
+    --_variable-spacing---80-32: clamp(var(--_static-spacing---rems--2rem),4.57vw + .89rem,var(--_static-spacing---rems--5rem));
+    --text--invert-tertiary: var(--_colors---all--neutral--300);
+    --background--invert-secondary: var(--_colors---teal--800);
+    --background--invert-border: var(--_colors---all--neutral--700);
+    --text-selection--text: var(--text--primary);
+    --text-selection--background: var(--background--brand);
+    --_colors---all--neutral--700: #616659;
+    --_colors---all--neutral--500: #b5b9a6;
+    --_colors---all--neutral--200: #f8faf0;
+    --_typography---font-families--sans: Fkgrotesk,Arial,sans-serif;
+    --_colors---orange--600: #ff5f02;
+    --_typography---eyebrow--bottom-margin: 1.5em;
+    --_typography---heading-2--bottom-margin: .3em;
+    --_typography---heading-3--bottom-margin: .5em;
+    --_typography---heading-4--bottom-margin: .8em;
+    --_components---input-label--horizontal-margin: var(--_components---input-field--horizontal-margin);
+    --_static-spacing---rems--1-125rem: 1.125rem;
+    --_static-spacing---rems--4-5rem: 4.5rem;
+    --_static-spacing---rems--7rem: 7rem
+}
+
+/* Component classes */
+
 .w-inline-block {
     max-width: 100%;
     display: inline-block

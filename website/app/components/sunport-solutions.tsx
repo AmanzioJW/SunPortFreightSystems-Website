@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from '@/app/components/styles/SunportSolutions.module.css';
-import '@/app/components/styles/Sunport-solutions-globals.css';
 
 interface Tab {
   id: string;

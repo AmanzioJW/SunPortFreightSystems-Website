@@ -1,0 +1,241 @@
+/* ============================================
+   Supplychain.module.css - FULLY SELF-CONTAINED
+   ============================================
+   This module contains ALL CSS variables and styles needed
+   for the Supplychain component, preserving exact original
+   values from Sunport-solutions-globals.css.
+   ============================================ */
+
+/* --------------------------------------------
+   CSS Variables - Scoped to the component root
+   -------------------------------------------- */
+
+.track {
+    /* ===== STATIC SPACING ===== */
+    --_static-spacing---rems--0rem: 0rem;
+    --_static-spacing---rems--0-25rem: .25rem;
+    --_static-spacing---rems--0-5rem: .5rem;
+    --_static-spacing---rems--0-75rem: .75rem;
+    --_static-spacing---rems--0-875rem: .875rem;
+    --_static-spacing---rems--1rem: 1rem;
+    --_static-spacing---rems--1-125rem: 1.125rem;
+    --_static-spacing---rems--1-25rem: 1.25rem;
+    --_static-spacing---rems--1-5rem: 1.5rem;
+    --_static-spacing---rems--2rem: 2rem;
+    --_static-spacing---rems--2-5rem: 2.5rem;
+    --_static-spacing---rems--3rem: 3rem;
+    --_static-spacing---rems--3-5rem: 3.5rem;
+    --_static-spacing---rems--4rem: 4rem;
+    --_static-spacing---rems--4-5rem: 4.5rem;
+    --_static-spacing---rems--5rem: 5rem;
+    --_static-spacing---rems--6rem: 6rem;
+    --_static-spacing---rems--7rem: 7rem;
+    --_static-spacing---rems--8rem: 8rem;
+
+    /* ===== VARIABLE SPACING (Fluid) ===== */
+    --_variable-spacing---24-16: clamp(var(--_static-spacing---rems--1rem),.76vw + .81rem,var(--_static-spacing---rems--1-5rem));
+    --_variable-spacing---64-24: clamp(var(--_static-spacing---rems--1-5rem),3.81vw + .57rem,var(--_static-spacing---rems--4rem));
+
+    /* ===== COLORS ===== */
+    --_colors---all--neutral--100: white;
+    --_colors---all--neutral--200: #f8faf0;
+    --_colors---all--neutral--300: #e6e6d1;
+    --_colors---all--neutral--500: #b5b9a6;
+    --_colors---all--neutral--700: #616659;
+    --_colors---all--neutral--900: black;
+
+    /* ===== TYPOGRAPHY - Font Families ===== */
+    --_typography---font-families--sans: Fkgrotesk,Arial,sans-serif;
+
+    /* ===== TYPOGRAPHY - Weights ===== */
+    --_typography---weight--medium: 500;
+
+    /* ===== TYPOGRAPHY - Heading 2 ===== */
+    --_typography---heading-2--font: var(--_typography---font-families--sans);
+    --_typography---heading-2--font-size-lg: clamp(var(--_static-spacing---rems--2rem),2.29vw + 1.44rem,var(--_static-spacing---rems--3-5rem));
+    --_typography---heading-2--line-height: 1.1;
+    --_typography---heading-2--font-weight: var(--_typography---weight--medium);
+    --_typography---heading-2--letter-spacing: -.03em;
+
+    /* ===== LAYOUT ===== */
+    --_layout---section--padding: clamp(var(--_static-spacing---rems--4rem),6.11vw + 2.5rem,var(--_static-spacing---rems--8rem));
+    --_layout---container--width: calc(100% - var(--_layout---columns--size)*2);
+    --_layout---container--max-width: 90rem;
+    --_layout---columns--size: var(--_variable-spacing---24-16);
+    --_layout---columns--gutter: calc(var(--_layout---columns--size)/2);
+    --_layout---columns--negative-gutter: calc(var(--_layout---columns--gutter)*-1);
+
+    /* ===== THEME ===== */
+    --background--primary: var(--_colors---all--neutral--200);
+    --text--primary: var(--_colors---all--neutral--900);
+}
+
+/* --------------------------------------------
+   Section Classes
+   -------------------------------------------- */
+
+.section {
+    padding-top: var(--_layout---section--padding);
+    padding-bottom: var(--_layout---section--padding)
+}
+
+.u-pb-0 {
+    padding-bottom: var(--_static-spacing---rems--0rem)
+}
+
+/* --------------------------------------------
+   Flex Utilities
+   -------------------------------------------- */
+
+.u-vflex-stretch-top {
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    display: flex
+}
+
+.u-vgap-64-24 {
+    grid-row-gap: var(--_variable-spacing---64-24)
+}
+
+/* --------------------------------------------
+   Container Classes
+   -------------------------------------------- */
+
+.w-layout-blockcontainer {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+}
+
+.w-container {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.w-container:before,.w-container:after {
+    content: " ";
+    grid-area: 1/1/2/2;
+    display: table
+}
+
+.w-container:after {
+    clear: both
+}
+
+.container {
+    width: var(--_layout---container--width);
+    max-width: var(--_layout---container--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+}
+
+/* --------------------------------------------
+   Grid System - Row
+   -------------------------------------------- */
+
+.row {
+    margin-right: var(--_layout---columns--negative-gutter);
+    margin-left: var(--_layout---columns--negative-gutter);
+    flex-wrap: wrap;
+    display: flex
+}
+
+.row-center-horizontal {
+    justify-content: center
+}
+
+/* --------------------------------------------
+   Grid System - Columns
+   -------------------------------------------- */
+
+.col {
+    padding-right: var(--_layout---columns--gutter);
+    padding-left: var(--_layout---columns--gutter);
+    flex: 1
+}
+
+.col-lg-8 {
+    flex-basis: 66.67%;
+    max-width: 66.6667%
+}
+
+/* --------------------------------------------
+   Typography - H2 (scoped to this component)
+   -------------------------------------------- */
+
+.track h2 {
+    font-family: var(--_typography---heading-2--font);
+    font-size: var(--_typography---heading-2--font-size-lg);
+    line-height: var(--_typography---heading-2--line-height);
+    font-weight: var(--_typography---heading-2--font-weight);
+    letter-spacing: var(--_typography---heading-2--letter-spacing);
+    text-wrap: balance;
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+/* --------------------------------------------
+   Utility Classes
+   -------------------------------------------- */
+
+.u-align-center {
+    text-align: center
+}
+
+/* --------------------------------------------
+   Tracks Container (for background visualization)
+   -------------------------------------------- */
+
+.tracks_container {
+    position: relative;
+    width: 100%
+}
+
+.tracks_middle {
+    position: relative;
+    z-index: 1
+}
+
+/* --------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------- */
+
+@media screen and (max-width: 991px){
+    .w-layout-blockcontainer {
+        max-width: 728px
+    }
+
+    .w-container {
+        max-width: 728px
+    }
+
+    .container {
+        max-width: var(--_layout---container--max-width)
+    }
+}
+
+@media screen and (max-width: 767px){
+    .w-layout-blockcontainer {
+        max-width: none
+    }
+
+    .col-lg-8 {
+        flex-basis: 100%;
+        max-width: 100%
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0
+    }
+}
+
+@media screen and (max-width: 479px){
+    .w-container {
+        max-width: none
+    }
+}

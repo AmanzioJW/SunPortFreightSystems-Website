@@ -1,21 +1,21 @@
 "use client";
 
 import SupplychainBackground from "./supplychain-components/supplychain-background";
-
+import styles from '@/app/components/styles/Supplychain.module.css';
 
 export default function Supplychain() {
     return (
-        <section className="track section u-pb-0">
-            <div className="u-vflex-stretch-top u-vgap-64-24">
-                <div className="w-layout-blockcontainer container w-container">
-                    <div className="row row-center-horizontal">
-                        <div className="col col-lg-8">
-                            <h2 className="u-align-center">Your best people are drowning in the least valuable work</h2>
+        <section className={`${styles['track']} ${styles['section']} ${styles['u-pb-0']}`}>
+            <div className={`${styles['u-vflex-stretch-top']} ${styles['u-vgap-64-24']}`}>
+                <div className={`${styles['w-layout-blockcontainer']} ${styles['container']} ${styles['w-container']}`}>
+                    <div className={`${styles['row']} ${styles['row-center-horizontal']}`}>
+                        <div className={`${styles['col']} ${styles['col-lg-8']}`}>
+                            <h2 className={styles['u-align-center']}>Your best people are drowning in the least valuable work</h2>
                         </div>
                     </div>
                 </div>
-                <div className="tracks_container">
-                    <div className="tracks_middle">
+                <div className={styles['tracks_container']}>
+                    <div className={styles['tracks_middle']}>
                     </div>
                     <SupplychainBackground />
                 </div>
