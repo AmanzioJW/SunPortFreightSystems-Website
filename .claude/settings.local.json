@@ -8,7 +8,12 @@
       "Bash(node scripts/extract-css-properly.js:*)",
       "Bash(node scripts/extract-by-lines.js:*)",
       "Bash(npx tsc:*)",
-      "Bash(tee:*)"
+      "Bash(tee:*)",
+      "Bash(dotnet --version:*)",
+      "Bash(dotnet tool list:*)",
+      "Bash(dotnet nuget add source:*)",
+      "Bash(dotnet tool install:*)",
+      "Bash(css:*)"
     ]
   }
 }

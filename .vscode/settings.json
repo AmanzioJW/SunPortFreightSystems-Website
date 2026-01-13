@@ -3,5 +3,6 @@
         "blockcontainer",
         "vflex",
         "vgap"
-    ]
+    ],
+    "chat.useAgentSkills": true
 }
