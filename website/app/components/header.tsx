@@ -25,13 +25,13 @@ interface MobileLink {
 
 const servicesLinks: FeatureLink[] = [
     {
-        href: '/Services/Truckload (FTL)',
+        href: '/Services/truckload-ftl',
         name: 'Truckload (FTL)',
         description: 'Full truckload shipping services',
         icon: <Truck className="stroke-foreground fill-blue-500/15" />,
     },
     {
-        href: '/Services/Less Than Truckload (LTL)',
+        href: '/Services/less-than-truckload-ltl',
         name: 'Less Than Truckload (LTL)',
         description: 'Partial shipment solutions',
         icon: <PackageOpen className="stroke-foreground fill-green-500/15" />,
@@ -49,13 +49,13 @@ const servicesLinks: FeatureLink[] = [
         icon: <Warehouse className="stroke-foreground fill-indigo-500/15" />,
     },
     {
-        href: '/Services/Specialized Services/Hazmat',
+        href: '/Services/specialized-services/Hazmat',
         name: 'Hazmat',
         description: 'Hazardous materials transport',
         icon: <AlertTriangle className="stroke-foreground fill-orange-500/15" />,
     },
     {
-        href: '/Services/Specialized Services/Heavy Haul',
+        href: '/Services/specialized-services/heavy-haul',
         name: 'Heavy Haul',
         description: 'Oversized and overweight loads',
         icon: <Anchor className="stroke-foreground fill-slate-500/15" />,
@@ -64,13 +64,13 @@ const servicesLinks: FeatureLink[] = [
 
 const carriersLinks: FeatureLink[] = [
     {
-        href: '/Carriers/Haul With Us',
+        href: '/Carriers/haul-with-us',
         name: 'Haul With Us',
         description: 'Join our carrier network',
         icon: <Handshake className="stroke-foreground fill-blue-500/15" />,
     },
     {
-        href: '/Carriers/Get Set Up',
+        href: '/Carriers/get-set-up',
         name: 'Get Set Up',
         description: 'Carrier onboarding and registration',
         icon: <ClipboardCheck className="stroke-foreground fill-green-500/15" />,
@@ -118,37 +118,37 @@ const industriesLinks: FeatureLink[] = [
 
 const sunportHubLinks: FeatureLink[] = [
     {
-        href: '/SunPort Hub/Industry News',
+        href: '/NewsandResources/industry-news',
         name: 'Industry News',
         description: 'Latest freight and logistics news',
         icon: <Newspaper className="stroke-foreground fill-blue-500/15" />,
     },
     {
-        href: '/SunPort Hub/Alerts & Notices',
+        href: '/NewsandResources/alerts-and-notices',
         name: 'Alerts & Notices',
         description: 'Important updates and announcements',
         icon: <Bell className="stroke-foreground fill-orange-500/15" />,
     },
     {
-        href: '/SunPort Hub/Carrier Resources',
+        href: '/NewsandResources/carrier-resources',
         name: 'Carrier Resources',
         description: 'Tools and guides for carriers',
         icon: <FolderOpen className="stroke-foreground fill-green-500/15" />,
     },
     {
-        href: '/SunPort Hub/Shipper Resources',
+        href: '/NewsandResources/shipper-resources',
         name: 'Shipper Resources',
         description: 'Resources for shippers',
         icon: <Package className="stroke-foreground fill-purple-500/15" />,
     },
     {
-        href: '/SunPort Hub/Government Agency Updates',
+        href: '/NewsandResources/government-agency-updates',
         name: 'Government Agency Updates',
         description: 'Regulatory news and compliance',
         icon: <Landmark className="stroke-foreground fill-slate-500/15" />,
     },
     {
-        href: '/SunPort Hub/Tools & Calculators',
+        href: '/NewsandResources/tools-and-calculators',
         name: 'Tools & Calculators',
         description: 'Freight calculators and utilities',
         icon: <Calculator className="stroke-foreground fill-indigo-500/15" />,
@@ -156,8 +156,8 @@ const sunportHubLinks: FeatureLink[] = [
 ]
 
 const contentLinks: FeatureLink[] = [
-    { name: 'Announcements', href: '#link', icon: <BookOpen className="stroke-foreground fill-purple-500/15" /> },
-    { name: "Shipper's Tools", href: '/SunPort Hub/Tools & Calculators', icon: <Calculator className="stroke-foreground fill-purple-500/15" /> }
+    { name: 'SunPort Hub Home', href: '/NewsandResources', icon: <BookOpen className="stroke-foreground fill-purple-500/15" /> },
+    { name: 'Tools & Calculators', href: '/NewsandResources/tools-and-calculators', icon: <Calculator className="stroke-foreground fill-purple-500/15" /> }
 ]
 
 const mobileLinks: MobileLink[] = [
@@ -177,7 +177,8 @@ const mobileLinks: MobileLink[] = [
         groupName: 'SunPort Hub',
         links: sunportHubLinks,
     },
-    { name: 'About Us', href: '/About Us' },
+    { name: 'About Us', href: '/about-us' },
+    { name: 'Contact', href: '/Contact' },
 ]
 
 export default function HeaderOne() {
@@ -233,14 +234,14 @@ export default function HeaderOne() {
                                         asChild
                                         variant="outline"
                                         size="sm">
-                                        <Link href="#">
-                                            <span>Login</span>
+                                        <Link href="/Carriers/haul-with-us">
+                                            <span>Become a Carrier</span>
                                         </Link>
                                     </Button>
                                     <Button
                                         asChild
                                         size="sm">
-                                        <Link href="#">
+                                        <Link href="/Contact">
                                             <span>Contact Us</span>
                                         </Link>
                                     </Button>
@@ -408,24 +409,26 @@ const NavMenu = () => {
                                 <ul>
                                     <NavigationMenuLink asChild>
                                         <Link
-                                            href="/Carriers/FAQ"
+                                            href="/Carriers/get-set-up"
                                             className="grid grid-cols-[auto_1fr] items-center gap-2.5">
                                             <BookOpen className="stroke-foreground fill-purple-500/15 size-4" />
-                                            <div className="text-foreground text-sm font-medium">FAQ&apos;s</div>
+                                            <div className="text-foreground text-sm font-medium">Carrier Setup</div>
                                         </Link>
                                     </NavigationMenuLink>
-                                    {contentLinks.filter(content => content.name === 'Announcements').map((content, index) => (
-                                        <NavigationMenuLink
-                                            key={index}
-                                            asChild>
-                                            <Link
-                                                href={content.href}
-                                                className="grid grid-cols-[auto_1fr] items-center gap-2.5">
-                                                {content.icon}
-                                                <div className="text-foreground text-sm font-medium">{content.name}</div>
-                                            </Link>
-                                        </NavigationMenuLink>
-                                    ))}
+                                    {sunportHubLinks
+                                        .filter((hub) => hub.name === 'Carrier Resources' || hub.name === 'Alerts & Notices')
+                                        .map((content, index) => (
+                                            <NavigationMenuLink
+                                                key={index}
+                                                asChild>
+                                                <Link
+                                                    href={content.href}
+                                                    className="grid grid-cols-[auto_1fr] items-center gap-2.5">
+                                                    {content.icon}
+                                                    <div className="text-foreground text-sm font-medium">{content.name}</div>
+                                                </Link>
+                                            </NavigationMenuLink>
+                                        ))}
                                 </ul>
                             </div>
                         </div>
@@ -494,7 +497,7 @@ const NavMenu = () => {
                     <NavigationMenuLink
                         asChild
                         className={navigationMenuTriggerStyle()}>
-                        <Link href="#">About Us</Link>
+                        <Link href="/about-us">About Us</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>

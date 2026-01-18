@@ -15,26 +15,26 @@ interface Tab {
 const TABS: Tab[] = [
   {
     id: 'tab1',
-    title: 'Comprehensive platform',
-    description: 'Build your operations on a complete platform, not point solutions.',
+    title: 'Plan and quote with confidence',
+    description: 'Build lane-specific quotes with mode, carrier, and service options in one view.',
     animationUrl: 'https://cdn.prod.website-files.com/68ed090d0998c3c224a59e7c/691ce4f0e3b9190e110e359c_8f6b8d382f17fb6b82c9fee0aa08fa77_Vooma%20-%20Animation%201.json'
   },
   {
     id: 'tab2',
-    title: 'Complete operational visibility',
-    description: 'Unlock the data in your team\'s inbox and calls to drive better margins.',
+    title: 'Execution visibility',
+    description: 'Track pickups, linehaul, and deliveries with proactive exception alerts.',
     animationUrl: 'https://cdn.prod.website-files.com/68ed090d0998c3c224a59e7c/691ce4f061dda993dae89a30_4060ea6f4b7bdbe2fd55ce23788fe8d5_Vooma%20-%20Animation%202.json'
   },
   {
     id: 'tab3',
-    title: 'Collective intelligence, not tribal knowledge',
-    description: 'A system that learns the nuances of your SOPs, customers, carriers and facilities.',
+    title: 'Carrier network and compliance',
+    description: 'Work with vetted partners, safety checks, and equipment matched to your freight.',
     animationUrl: 'https://cdn.prod.website-files.com/68ed090d0998c3c224a59e7c/691ce4f0b3211c8ab2551da1_9b0afe685e71fd03191ac31251fbeff4_Vooma%20-%20Animation%203.json'
   },
   {
     id: 'tab4',
-    title: 'Execute your best operating practices',
-    description: 'AI workers that email, call, text and log into systems to get your tedious work done, every time, 24/7.',
+    title: 'Analytics and optimization',
+    description: 'Use performance data to improve cost, service, and routing over time.',
     animationUrl: 'https://cdn.prod.website-files.com/68ed090d0998c3c224a59e7c/691ce4f068737019d7816909_adcef3f8b5e2b5dced6381416bf6e76f_Vooma%20-%20Animation%204.json'
   }
 ];
@@ -75,15 +75,15 @@ export default function SunportSolutions() {
                     <div className={`${styles['col']} ${styles['col-lg-6']} ${styles['col-md-5']} ${styles['col-sm-12']} ${styles['u-z-index-1']}`}>
                         <div className={`${styles['u-vflex-stretch-between']} ${styles['u-vgap-32']} ${styles['u-h-100']}`}>
                             <div className={`${styles['u-vflex-left-top']} ${styles['u-vgap-24-16']}`}>
-                                <h2 className={`${styles['eyebrow']} ${styles['u-color-secondary']}`}>product</h2>
-                                <p className={styles['h2']}>A complete platform to elevate your team from quote to cash</p>
+                                <h2 className={`${styles['eyebrow']} ${styles['u-color-secondary']}`}>platform</h2>
+                                <p className={styles['h2']}>A complete platform to move freight from quote to delivery</p>
                             </div>
                             <div role="tablist" className={styles['u-vflex-stretch-bottom']}>
                                 {TABS.map((tab, index) => (
                                     <a
                                         key={tab.id}
                                         role="tab"
-                                        href="#"
+                                        href={`#panel-${tab.id}`}
                                         data-tabs="content-item"
                                         aria-selected={activeTab === index}
                                         aria-controls={`panel-${tab.id}`}

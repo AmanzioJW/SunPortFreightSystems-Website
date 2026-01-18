@@ -10,7 +10,7 @@ export default function Supplychain() {
                 <div className={`${styles['w-layout-blockcontainer']} ${styles['container']} ${styles['w-container']}`}>
                     <div className={`${styles['row']} ${styles['row-center-horizontal']}`}>
                         <div className={`${styles['col']} ${styles['col-lg-8']}`}>
-                            <h2 className={styles['u-align-center']}>Your best people are drowning in the least valuable work</h2>
+                            <h2 className={styles['u-align-center']}>Visibility that keeps your supply chain moving</h2>
                         </div>
                     </div>
                 </div>
