@@ -51,7 +51,7 @@ export default function Solutions() {
                             showCTA={true}
                             ctaText="Explore FTL"
                             ctaHref="/Services/truckload-ftl"
-                            imageSrc="/images/Services_FTL.jpeg"
+                            imageSrc="/images/services_FTL.jpeg"
                             imageAlt="Truckload freight service"
                         />
 

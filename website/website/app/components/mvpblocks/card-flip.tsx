@@ -64,6 +64,18 @@ export default function CardFlip({
   const showImage = Boolean(imageSrc) || showImagePlaceholder;
   const placeholderLabel = imagePlaceholder ?? 'Add service image';
   const resolvedImageAlt = imageAlt ?? title;
+  const frontTitleClass = cn(
+    'text-lg leading-snug font-semibold tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px]',
+    showImage ? 'text-white drop-shadow-sm' : 'text-zinc-900 dark:text-white',
+  );
+  const frontSubtitleClass = cn(
+    'line-clamp-2 text-sm tracking-tight transition-all delay-[50ms] duration-500 ease-out group-hover:translate-y-[-4px]',
+    showImage ? 'text-white/80 drop-shadow-sm' : 'text-zinc-600 dark:text-zinc-300',
+  );
+  const frontIconClass = cn(
+    'relative z-10 h-5 w-5 transition-all duration-300 group-hover/icon:scale-110 group-hover/icon:rotate-12',
+    showImage ? 'text-white' : 'text-primary',
+  );
 
   useEffect(() => {
     // Generate random values only on client after hydration
@@ -107,12 +119,9 @@ export default function CardFlip({
             isFlipped ? 'opacity-0' : 'opacity-100',
           )}
         >
-          {/* Background gradient effect */}
-          <div className="from-primary/5 dark:from-primary/10 absolute inset-0 bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
-
-          {showImage && (
-            <div className="absolute left-5 right-5 top-5">
-              <div className="relative h-40 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-100/80 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/70">
+          {showImage ? (
+            <>
+              <div className="absolute inset-0">
                 {imageSrc ? (
                   <Image
                     src={imageSrc}
@@ -122,15 +131,17 @@ export default function CardFlip({
                     className="object-cover"
                   />
                 ) : (
-                  <>
-                    <div className="flex h-full items-center justify-center text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500/80 dark:text-zinc-400">
+                  <div className="flex h-full items-center justify-center bg-slate-900/70">
+                    <div className="rounded-xl border border-dashed border-slate-300/60 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-100/90">
                       {placeholderLabel}
                     </div>
-                    <div className="pointer-events-none absolute inset-0 rounded-xl border border-dashed border-slate-300/70 dark:border-zinc-700/70" />
-                  </>
+                  </div>
                 )}
               </div>
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/50 to-slate-950/20" />
+            </>
+          ) : (
+            <div className="from-primary/5 dark:from-primary/10 absolute inset-0 bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
           )}
 
           {/* Animated code blocks */}
@@ -175,13 +186,13 @@ export default function CardFlip({
           )}
 
           {/* Bottom content */}
-          <div className="absolute right-0 bottom-0 left-0 p-5">
+          <div className="absolute right-0 bottom-0 left-0 z-10 p-5">
             <div className="flex items-center justify-between gap-3">
               <div className="space-y-1.5">
-                <h3 className="text-lg leading-snug font-semibold tracking-tight text-zinc-900 transition-all duration-500 ease-out group-hover:translate-y-[-4px] dark:text-white">
+                <h3 className={frontTitleClass}>
                   {title}
                 </h3>
-                <p className="line-clamp-2 text-sm tracking-tight text-zinc-600 transition-all delay-[50ms] duration-500 ease-out group-hover:translate-y-[-4px] dark:text-zinc-300">
+                <p className={frontSubtitleClass}>
                   {subtitle}
                 </p>
               </div>
@@ -193,7 +204,7 @@ export default function CardFlip({
                     'opacity-0 group-hover/icon:opacity-100',
                   )}
                 />
-                <Zap className="text-primary relative z-10 h-5 w-5 transition-all duration-300 group-hover/icon:scale-110 group-hover/icon:rotate-12" />
+                <Zap className={frontIconClass} />
               </div>
             </div>
           </div>
