@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/app/components/ui/button";
 
@@ -68,19 +68,6 @@ export default function WhyChooseSunPort() {
   const [activeId, setActiveId] = useState<string>("plan");
   const active = STAGES.find((s) => s.id === activeId) ?? STAGES[0];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveId((prev) => {
-        const currentIndex = STAGES.findIndex((stage) => stage.id === prev);
-        const nextIndex =
-          currentIndex === -1 ? 0 : (currentIndex + 1) % STAGES.length;
-        return STAGES[nextIndex].id;
-      });
-    }, 4500);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="relative overflow-hidden bg-slate-950 text-slate-50">
       {/* Gradient / glow background */}
@@ -139,7 +126,7 @@ export default function WhyChooseSunPort() {
                 Supply Chain Journey
               </p>
               <span className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-slate-300">
-                Auto-rotating — click a stage to explore
+                Click a stage to explore
               </span>
             </div>
 
