@@ -12,7 +12,9 @@
 
 import { cn } from '@/app/lib/utils';
 import { ArrowRight, Code2, Copy, Rocket, Zap } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export interface CardFlipProps {
   title?: string;
@@ -26,6 +28,12 @@ export interface CardFlipProps {
   showCodeBlocks?: boolean;
   showCTA?: boolean;
   ctaText?: string;
+  ctaHref?: string;
+  ctaAriaLabel?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  showImagePlaceholder?: boolean;
+  imagePlaceholder?: string;
 }
 
 export default function CardFlip({
@@ -43,9 +51,19 @@ export default function CardFlip({
   showCodeBlocks = true,
   showCTA = true,
   ctaText = 'Start Building',
+  ctaHref,
+  ctaAriaLabel,
+  imageSrc,
+  imageAlt,
+  showImagePlaceholder = false,
+  imagePlaceholder,
 }: CardFlipProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [codeBlockStyles, setCodeBlockStyles] = useState<Array<{ width: string; marginLeft: string }>>([])
+  const ctaIsLink = Boolean(ctaHref);
+  const showImage = Boolean(imageSrc) || showImagePlaceholder;
+  const placeholderLabel = imagePlaceholder ?? 'Add service image';
+  const resolvedImageAlt = imageAlt ?? title;
 
   useEffect(() => {
     // Generate random values only on client after hydration
@@ -91,6 +109,29 @@ export default function CardFlip({
         >
           {/* Background gradient effect */}
           <div className="from-primary/5 dark:from-primary/10 absolute inset-0 bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
+
+          {showImage && (
+            <div className="absolute left-5 right-5 top-5">
+              <div className="relative h-40 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-100/80 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/70">
+                {imageSrc ? (
+                  <Image
+                    src={imageSrc}
+                    alt={resolvedImageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <>
+                    <div className="flex h-full items-center justify-center text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500/80 dark:text-zinc-400">
+                      {placeholderLabel}
+                    </div>
+                    <div className="pointer-events-none absolute inset-0 rounded-xl border border-dashed border-slate-300/70 dark:border-zinc-700/70" />
+                  </>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Animated code blocks */}
           {showCodeBlocks && (
@@ -222,34 +263,64 @@ export default function CardFlip({
 
           {showCTA && (
             <div className="relative z-10 mt-auto border-t border-slate-200 pt-4 dark:border-zinc-800">
-              <div
-                className={cn(
-                  'group/start relative',
-                  'flex items-center justify-between',
-                  'rounded-lg p-2.5',
-                  'transition-all duration-300',
-                  'bg-gradient-to-r from-slate-100 via-slate-100 to-slate-100',
-                  'dark:from-zinc-800 dark:via-zinc-800 dark:to-zinc-800',
-                  'hover:from-primary/10 hover:via-primary/5 hover:to-transparent',
-                  'dark:hover:from-primary/20 dark:hover:via-primary/10 dark:hover:to-transparent',
-                  'hover:scale-[1.02] hover:cursor-pointer',
-                  'hover:border-primary/20 border border-transparent',
-                )}
-              >
-                <span className="group-hover/start:text-primary text-sm font-semibold text-zinc-900 transition-colors duration-300 dark:text-white">
-                  {ctaText}
-                </span>
-                <div className="group/icon relative">
-                  <div
-                    className={cn(
-                      'absolute inset-[-6px] rounded-lg transition-all duration-300',
-                      'from-primary/20 via-primary/10 bg-gradient-to-br to-transparent',
-                      'scale-90 opacity-0 group-hover/start:scale-100 group-hover/start:opacity-100',
-                    )}
-                  />
-                  <ArrowRight className="text-primary relative z-10 h-4 w-4 transition-all duration-300 group-hover/start:translate-x-1 group-hover/start:scale-110" />
+              {ctaIsLink ? (
+                <Link
+                  href={ctaHref as string}
+                  aria-label={ctaAriaLabel ?? ctaText}
+                  className={cn(
+                    'group/start relative',
+                    'flex items-center justify-between',
+                    'rounded-lg p-2.5',
+                    'transition-all duration-300',
+                    'bg-gradient-to-r from-slate-100 via-slate-100 to-slate-100',
+                    'dark:from-zinc-800 dark:via-zinc-800 dark:to-zinc-800',
+                    'hover:from-primary/10 hover:via-primary/5 hover:to-transparent',
+                    'dark:hover:from-primary/20 dark:hover:via-primary/10 dark:hover:to-transparent',
+                    'hover:scale-[1.02] hover:cursor-pointer',
+                    'hover:border-primary/20 border border-transparent',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50',
+                  )}
+                >
+                  <span className="group-hover/start:text-primary text-sm font-semibold text-zinc-900 transition-colors duration-300 dark:text-white">
+                    {ctaText}
+                  </span>
+                  <div className="group/icon relative">
+                    <div
+                      className={cn(
+                        'absolute inset-[-6px] rounded-lg transition-all duration-300',
+                        'from-primary/20 via-primary/10 bg-gradient-to-br to-transparent',
+                        'scale-90 opacity-0 group-hover/start:scale-100 group-hover/start:opacity-100',
+                      )}
+                    />
+                    <ArrowRight className="text-primary relative z-10 h-4 w-4 transition-all duration-300 group-hover/start:translate-x-1 group-hover/start:scale-110" />
+                  </div>
+                </Link>
+              ) : (
+                <div
+                  className={cn(
+                    'group/start relative',
+                    'flex items-center justify-between',
+                    'rounded-lg p-2.5',
+                    'transition-all duration-300',
+                    'bg-gradient-to-r from-slate-100 via-slate-100 to-slate-100',
+                    'dark:from-zinc-800 dark:via-zinc-800 dark:to-zinc-800',
+                    'border border-transparent',
+                  )}
+                >
+                  <span className="text-sm font-semibold text-zinc-900 dark:text-white">
+                    {ctaText}
+                  </span>
+                  <div className="group/icon relative">
+                    <div
+                      className={cn(
+                        'absolute inset-[-6px] rounded-lg transition-all duration-300',
+                        'from-primary/20 via-primary/10 bg-gradient-to-br to-transparent',
+                      )}
+                    />
+                    <ArrowRight className="text-primary relative z-10 h-4 w-4 transition-all duration-300" />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           )}
         </div>
