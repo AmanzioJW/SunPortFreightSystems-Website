@@ -239,14 +239,14 @@ export default function CardFlip({
           <div className="from-primary/5 dark:from-primary/10 absolute inset-0 rounded-2xl bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
 
           {showBackLogoImage && (
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="pointer-events-none absolute inset-0">
               <Image
                 src={backLogoSrc as string}
                 alt={resolvedBackLogoAlt}
                 aria-hidden={resolvedBackLogoAlt === ''}
-                width={240}
-                height={240}
-                className="h-40 w-40 object-contain opacity-10 sm:h-48 sm:w-48"
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                className="object-cover opacity-10"
               />
             </div>
           )}
