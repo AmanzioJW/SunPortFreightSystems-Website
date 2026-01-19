@@ -1,18 +1,11 @@
 "use client";
+
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/app/components/ui/button";
 
-type Stage = {
-  id: string;
-  label: string;
-  title: string;
-  body: string;
-  metric?: string;
-};
-
-const STAGES: Stage[] = [
+const STAGES = [
   {
     id: "plan",
     label: "Plan & Quote",
@@ -64,13 +57,28 @@ const STAGES: Stage[] = [
 ];
 
 export default function WhyChooseSunPort() {
-  const [activeId, setActiveId] = useState<string>("plan");
+  const [activeId, setActiveId] = useState("plan");
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const active = STAGES.find((s) => s.id === activeId) ?? STAGES[0];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveId((prev) => {
+        const currentIndex = STAGES.findIndex((stage) => stage.id === prev);
+        const nextIndex =
+          currentIndex === -1 ? 0 : (currentIndex + 1) % STAGES.length;
+        return STAGES[nextIndex].id;
+      });
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative overflow-hidden bg-slate-950 text-slate-50">
       {/* Gradient / glow background */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.25),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(129,140,248,0.2),_transparent_55%)] opacity-80" />
+
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-stretch lg:py-20">
         {/* Left: Headline */}
         <div className="flex-1 space-y-6">
@@ -85,6 +93,7 @@ export default function WhyChooseSunPort() {
             that bring visibility and control to every shipment. We learn your constraints,
             shape services around your goals, and communicate clearly at every milestone.
           </p>
+
           <div className="mt-4 flex flex-wrap gap-3 text-xs sm:text-sm">
             <span className="rounded-full border border-cyan-400/60 px-3 py-1 text-cyan-100">
               Multi-modal: ocean · air · rail · truck
@@ -96,6 +105,7 @@ export default function WhyChooseSunPort() {
               Real-time visibility & alerts
             </span>
           </div>
+
           <div className="flex flex-wrap gap-3 pt-2">
             <Button
               asChild
@@ -112,6 +122,7 @@ export default function WhyChooseSunPort() {
             </Button>
           </div>
         </div>
+
         {/* Right: Interactive journey */}
         <div className="flex-1">
           {/* Path */}
@@ -121,17 +132,22 @@ export default function WhyChooseSunPort() {
                 Supply Chain Journey
               </p>
               <span className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-slate-300">
-                Click a stage to explore
+                Tap a stage to explore
               </span>
             </div>
+
             {/* Horizontal timeline */}
             <div className="relative mb-6 flex items-center justify-between gap-3">
               <div className="absolute left-[6px] right-[6px] top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-cyan-500/60 via-indigo-500/60 to-cyan-400/50 opacity-60" />
               {STAGES.map((stage, index) => {
                 const isActive = stage.id === activeId;
+                const isHovered = stage.id === hoveredId;
+                const isEmphasized = isActive || isHovered;
                 return (
                   <button
                     key={stage.id}
+                    onMouseEnter={() => setHoveredId(stage.id)}
+                    onMouseLeave={() => setHoveredId(null)}
                     onClick={() => setActiveId(stage.id)}
                     type="button"
                     className="relative z-10 flex flex-col items-center gap-1 text-xs sm:text-[13px]"
@@ -140,18 +156,23 @@ export default function WhyChooseSunPort() {
                       className={`flex h-8 w-8 items-center justify-center rounded-full border ${
                         isActive
                           ? "border-cyan-300 bg-slate-900 shadow-[0_0_18px_rgba(34,211,238,0.6)]"
+                          : isHovered
+                          ? "border-cyan-300/70 bg-slate-900 shadow-[0_0_12px_rgba(34,211,238,0.35)]"
                           : "border-slate-600 bg-slate-900/60"
                       }`}
-                      layoutId="stageDot"
                       transition={{ type: "spring", stiffness: 350, damping: 28 }}
                     >
-                      <span className="text-[10px] text-slate-100">
+                      <span
+                        className={`text-[10px] ${
+                          isEmphasized ? "text-cyan-100" : "text-slate-100"
+                        }`}
+                      >
                         {index + 1}
                       </span>
                     </motion.div>
                     <span
                       className={`whitespace-nowrap ${
-                        isActive ? "text-cyan-100" : "text-slate-400"
+                        isEmphasized ? "text-cyan-100" : "text-slate-400"
                       }`}
                     >
                       {stage.label}
@@ -160,6 +181,7 @@ export default function WhyChooseSunPort() {
                 );
               })}
             </div>
+
             {/* Detail panel */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -177,6 +199,7 @@ export default function WhyChooseSunPort() {
                   {active.title}
                 </h3>
                 <p className="mt-2 text-sm text-slate-300">{active.body}</p>
+
                 {active.metric && (
                   <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-slate-900 px-3 py-1 text-[11px] text-cyan-100">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
