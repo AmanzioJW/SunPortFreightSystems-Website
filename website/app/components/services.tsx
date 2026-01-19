@@ -55,6 +55,8 @@ export default function Solutions() {
                             imageAlt="Truckload freight service"
                             backLogoSrc="/logo.svg"
                             showBackLogo={true}
+                            frontIconSrc="/favicon.ico"
+                            frontIconAlt="SunPort Freight Systems logo"
                         />
 
                         <CardFlip
@@ -77,6 +79,8 @@ export default function Solutions() {
                             imageAlt="Less-than-truckload service"
                             backLogoSrc="/logo.svg"
                             showBackLogo={true}
+                            frontIconSrc="/favicon.ico"
+                            frontIconAlt="SunPort Freight Systems logo"
                         />
                         <CardFlip
                             title="Intermodal"
@@ -98,6 +102,8 @@ export default function Solutions() {
                             imageAlt="Intermodal freight service"
                             backLogoSrc="/logo.svg"
                             showBackLogo={true}
+                            frontIconSrc="/favicon.ico"
+                            frontIconAlt="SunPort Freight Systems logo"
                         />
                         <CardFlip
                             title="Warehousing"
@@ -119,6 +125,8 @@ export default function Solutions() {
                             imageAlt="Warehousing service"
                             backLogoSrc="/logo.svg"
                             showBackLogo={true}
+                            frontIconSrc="/favicon.ico"
+                            frontIconAlt="SunPort Freight Systems logo"
                         />
                         <CardFlip
                             title="Specialized Services"
@@ -140,6 +148,8 @@ export default function Solutions() {
                             imageAlt="Specialized freight services"
                             backLogoSrc="/logo.svg"
                             showBackLogo={true}
+                            frontIconSrc="/favicon.ico"
+                            frontIconAlt="SunPort Freight Systems logo"
                         />
                         <CardFlip
                             title="Have a Unique Project?"
@@ -161,6 +171,8 @@ export default function Solutions() {
                             imageAlt="Custom freight solutions"
                             backLogoSrc="/logo.svg"
                             showBackLogo={true}
+                            frontIconSrc="/favicon.ico"
+                            frontIconAlt="SunPort Freight Systems logo"
                         />
                     </div>
                 </div>

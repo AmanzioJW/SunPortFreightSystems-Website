@@ -37,6 +37,8 @@ export interface CardFlipProps {
   backLogoSrc?: string;
   backLogoAlt?: string;
   showBackLogo?: boolean;
+  frontIconSrc?: string;
+  frontIconAlt?: string;
 }
 
 export default function CardFlip({
@@ -63,6 +65,8 @@ export default function CardFlip({
   backLogoSrc,
   backLogoAlt,
   showBackLogo = false,
+  frontIconSrc,
+  frontIconAlt,
 }: CardFlipProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [codeBlockStyles, setCodeBlockStyles] = useState<Array<{ width: string; marginLeft: string }>>([])
@@ -72,6 +76,7 @@ export default function CardFlip({
   const resolvedImageAlt = imageAlt ?? title;
   const resolvedBackLogoAlt = backLogoAlt ?? '';
   const showBackLogoImage = Boolean(backLogoSrc) && showBackLogo;
+  const resolvedFrontIconAlt = frontIconAlt ?? '';
   const frontTitleClass = cn(
     'text-lg leading-snug font-semibold tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px]',
     showImage ? 'text-white drop-shadow-sm' : 'text-zinc-900 dark:text-white',
@@ -83,6 +88,10 @@ export default function CardFlip({
   const frontIconClass = cn(
     'relative z-10 h-5 w-5 transition-all duration-300 group-hover/icon:scale-110 group-hover/icon:rotate-12',
     showImage ? 'text-white' : 'text-primary',
+  );
+  const frontIconImageClass = cn(
+    'relative z-10 h-5 w-5 object-contain transition-all duration-300 group-hover/icon:scale-110 group-hover/icon:rotate-12',
+    showImage ? 'drop-shadow-sm' : '',
   );
 
   useEffect(() => {
@@ -212,7 +221,18 @@ export default function CardFlip({
                     'opacity-0 group-hover/icon:opacity-100',
                   )}
                 />
-                <Zap className={frontIconClass} />
+                {frontIconSrc ? (
+                  <Image
+                    src={frontIconSrc}
+                    alt={resolvedFrontIconAlt}
+                    aria-hidden={resolvedFrontIconAlt === ''}
+                    width={20}
+                    height={20}
+                    className={frontIconImageClass}
+                  />
+                ) : (
+                  <Zap className={frontIconClass} />
+                )}
               </div>
             </div>
           </div>
