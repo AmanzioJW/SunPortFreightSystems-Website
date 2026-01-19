@@ -53,6 +53,8 @@ export default function Solutions() {
                             ctaHref="/Services/truckload-ftl"
                             imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Truckload freight service"
+                            backLogoSrc="/logo.svg"
+                            showBackLogo={true}
                         />
 
                         <CardFlip
@@ -73,6 +75,8 @@ export default function Solutions() {
                             ctaHref="/Services/less-than-truckload-ltl"
                             imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Less-than-truckload service"
+                            backLogoSrc="/logo.svg"
+                            showBackLogo={true}
                         />
                         <CardFlip
                             title="Intermodal"
@@ -92,6 +96,8 @@ export default function Solutions() {
                             ctaHref="/Services/Intermodal"
                             imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Intermodal freight service"
+                            backLogoSrc="/logo.svg"
+                            showBackLogo={true}
                         />
                         <CardFlip
                             title="Warehousing"
@@ -111,6 +117,8 @@ export default function Solutions() {
                             ctaHref="/Services/Warehousing"
                             imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Warehousing service"
+                            backLogoSrc="/logo.svg"
+                            showBackLogo={true}
                         />
                         <CardFlip
                             title="Specialized Services"
@@ -130,6 +138,8 @@ export default function Solutions() {
                             ctaHref="/Services/specialized-services"
                             imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Specialized freight services"
+                            backLogoSrc="/logo.svg"
+                            showBackLogo={true}
                         />
                         <CardFlip
                             title="Have a Unique Project?"
@@ -149,6 +159,8 @@ export default function Solutions() {
                             ctaHref="/Contact"
                             imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Custom freight solutions"
+                            backLogoSrc="/logo.svg"
+                            showBackLogo={true}
                         />
                     </div>
                 </div>

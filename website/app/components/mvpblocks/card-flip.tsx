@@ -34,6 +34,9 @@ export interface CardFlipProps {
   imageAlt?: string;
   showImagePlaceholder?: boolean;
   imagePlaceholder?: string;
+  backLogoSrc?: string;
+  backLogoAlt?: string;
+  showBackLogo?: boolean;
 }
 
 export default function CardFlip({
@@ -57,6 +60,9 @@ export default function CardFlip({
   imageAlt,
   showImagePlaceholder = false,
   imagePlaceholder,
+  backLogoSrc,
+  backLogoAlt,
+  showBackLogo = false,
 }: CardFlipProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [codeBlockStyles, setCodeBlockStyles] = useState<Array<{ width: string; marginLeft: string }>>([])
@@ -64,6 +70,8 @@ export default function CardFlip({
   const showImage = Boolean(imageSrc) || showImagePlaceholder;
   const placeholderLabel = imagePlaceholder ?? 'Add service image';
   const resolvedImageAlt = imageAlt ?? title;
+  const resolvedBackLogoAlt = backLogoAlt ?? '';
+  const showBackLogoImage = Boolean(backLogoSrc) && showBackLogo;
   const frontTitleClass = cn(
     'text-lg leading-snug font-semibold tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px]',
     showImage ? 'text-white drop-shadow-sm' : 'text-zinc-900 dark:text-white',
@@ -229,6 +237,19 @@ export default function CardFlip({
         >
           {/* Background gradient */}
           <div className="from-primary/5 dark:from-primary/10 absolute inset-0 rounded-2xl bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
+
+          {showBackLogoImage && (
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <Image
+                src={backLogoSrc as string}
+                alt={resolvedBackLogoAlt}
+                aria-hidden={resolvedBackLogoAlt === ''}
+                width={240}
+                height={240}
+                className="h-40 w-40 object-contain opacity-10 sm:h-48 sm:w-48"
+              />
+            </div>
+          )}
 
           <div className="relative z-10 flex-1 space-y-5">
             <div className="space-y-2">
