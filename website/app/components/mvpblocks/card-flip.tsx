@@ -12,6 +12,7 @@
 
 import { cn } from '@/app/lib/utils';
 import { ArrowRight, Code2, Copy, Rocket, Zap } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -29,6 +30,10 @@ export interface CardFlipProps {
   ctaText?: string;
   ctaHref?: string;
   ctaAriaLabel?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  showImagePlaceholder?: boolean;
+  imagePlaceholder?: string;
 }
 
 export default function CardFlip({
@@ -48,10 +53,17 @@ export default function CardFlip({
   ctaText = 'Start Building',
   ctaHref,
   ctaAriaLabel,
+  imageSrc,
+  imageAlt,
+  showImagePlaceholder = false,
+  imagePlaceholder,
 }: CardFlipProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [codeBlockStyles, setCodeBlockStyles] = useState<Array<{ width: string; marginLeft: string }>>([])
   const ctaIsLink = Boolean(ctaHref);
+  const showImage = Boolean(imageSrc) || showImagePlaceholder;
+  const placeholderLabel = imagePlaceholder ?? 'Add service image';
+  const resolvedImageAlt = imageAlt ?? title;
 
   useEffect(() => {
     // Generate random values only on client after hydration
@@ -97,6 +109,29 @@ export default function CardFlip({
         >
           {/* Background gradient effect */}
           <div className="from-primary/5 dark:from-primary/10 absolute inset-0 bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
+
+          {showImage && (
+            <div className="absolute left-5 right-5 top-5">
+              <div className="relative h-40 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-100/80 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/70">
+                {imageSrc ? (
+                  <Image
+                    src={imageSrc}
+                    alt={resolvedImageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <>
+                    <div className="flex h-full items-center justify-center text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500/80 dark:text-zinc-400">
+                      {placeholderLabel}
+                    </div>
+                    <div className="pointer-events-none absolute inset-0 rounded-xl border border-dashed border-slate-300/70 dark:border-zinc-700/70" />
+                  </>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Animated code blocks */}
           {showCodeBlocks && (
