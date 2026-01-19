@@ -1,69 +1,63 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/app/components/ui/button";
 
-type Stage = {
-  id: string;
-  label: string;
-  title: string;
-  body: string;
-  metric?: string;
-};
-
-const STAGES: Stage[] = [
+const STAGES = [
   {
     id: "plan",
     label: "Plan & Quote",
-    title: "We start with clarity, not guesswork.",
+    title: "Clarity and options before you commit.",
     body:
-      "We analyze your lanes, freight profile, and constraints—then match you with the right mode, carriers, and routing. Transparent pricing, no hidden accessorials, and options for hazmat, oversized, and time-critical shipments.",
-    metric: "Mode-optimized quotes in hours, not days.",
+      "We review lanes, equipment needs, accessorials, and timing constraints, then build a plan across modes. Pricing is transparent and documented so your teams stay aligned.",
+    metric: "Accurate quotes in hours, not days.",
   },
   {
     id: "pickup",
     label: "Pickup",
-    title: "On-time pickup, built for real-world operations.",
+    title: "Pickup coordination that keeps docks moving.",
     body:
-      "We coordinate carriers, appointment windows, and dock constraints so your freight moves without drama. Our network includes hazmat-certified and specialized equipment to handle sensitive and regulated cargo safely.",
-    metric: "Network of vetted, compliant carriers.",
+      "Carrier appointment windows, equipment checks, and site rules are confirmed before dispatch. Hazmat and specialized equipment are verified so freight moves safely the first time.",
+    metric: "Vetted, compliant carriers with the right equipment.",
   },
   {
     id: "port",
     label: "Port & Customs",
-    title: "Compliance handled before it becomes a problem.",
+    title: "Compliance handled upstream.",
     body:
-      "Documentation, filings, and regulatory checks are managed in advance so your freight doesn’t sit. We work with trusted partners to keep hazmat, international, and high-value cargo moving within regulations.",
-    metric: "Reduced port dwell time & exceptions.",
+      "Documentation, filings, and partner coordination happen early, reducing holds at ports, terminals, and border crossings. We keep stakeholders synced through every milestone.",
+    metric: "Fewer holds and faster clearance.",
   },
   {
     id: "linehaul",
     label: "Linehaul",
-    title: "The right mode for your priorities.",
+    title: "Mode selection built around your priorities.",
     body:
-      "Whether you need speed, savings, or a hybrid solution, we design multi-modal moves across ocean, air, rail, and over-the-road. Live status, proactive exception alerts, and route optimization come standard.",
-    metric: "Ocean, air, rail, and OTR in one plan.",
+      "We design multi-modal routes across ocean, air, rail, and over-the-road to balance speed, cost, and resilience. Live tracking and proactive exception alerts are standard.",
+    metric: "One plan for ocean, air, rail, and OTR.",
   },
   {
     id: "final-mile",
     label: "Final Mile",
-    title: "Delivery that matches your customer promise.",
+    title: "Deliveries that protect your customer promise.",
     body:
-      "We coordinate final-mile carriers, appointment scheduling, and site requirements to ensure clean handoffs and proof of delivery. Your team sees status updates and documents in one place.",
-    metric: "Clean PODs and fewer delivery disputes.",
+      "Appointment scheduling, site requirements, and proof of delivery are coordinated for clean handoffs. Your team sees signatures and documents in one place.",
+    metric: "Cleaner PODs and fewer delivery disputes.",
   },
   {
     id: "visibility",
     label: "Visibility & Data",
-    title: "One source of truth for your freight.",
+    title: "A single source of truth.",
     body:
-      "Dashboards, real-time tracking, and shipment history give you the visibility you never get from generic brokers. We use your data to spot patterns, reduce cost, and tighten service levels over time.",
-    metric: "Single pane of glass for your supply chain.",
+      "Dashboards, real-time tracking, and shipment history reveal trends, reduce cost, and tighten service levels over time. You get visibility beyond a standard broker portal.",
+    metric: "Real-time visibility with actionable insights.",
   },
 ];
 
 export default function WhyChooseSunPort() {
-  const [activeId, setActiveId] = useState<string>("plan");
+  const [activeId, setActiveId] = useState("plan");
   const active = STAGES.find((s) => s.id === activeId) ?? STAGES[0];
 
   return (
@@ -78,14 +72,12 @@ export default function WhyChooseSunPort() {
             Why Shippers Choose SunPort
           </p>
           <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-            Building the roots for your evolving supply chain needs.
+            Built for the real-world pressures of modern freight.
           </h2>
           <p className="max-w-xl text-sm text-slate-300 sm:text-base">
-            Our mission is to deliver reliable, technology-driven freight solutions that bring
-            visibility and control to every part of the supply chain. From day one,
-            we strive to be a trusted partner—understanding each customer’s unique challenges,
-            shaping services around their specific needs, and maintaining clear, honest
-            communication throughout the entire process.
+            SunPort Freight Systems delivers dependable, technology-driven freight solutions
+            that bring visibility and control to every shipment. We learn your constraints,
+            shape services around your goals, and communicate clearly at every milestone.
           </p>
 
           <div className="mt-4 flex flex-wrap gap-3 text-xs sm:text-sm">
@@ -99,6 +91,22 @@ export default function WhyChooseSunPort() {
               Real-time visibility & alerts
             </span>
           </div>
+
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button
+              asChild
+              className="bg-cyan-400 text-slate-950 hover:bg-cyan-300"
+            >
+              <Link href="/Contact">Request a Quote</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="border-slate-700 text-slate-100 hover:bg-slate-900"
+            >
+              <Link href="/Services">Explore Services</Link>
+            </Button>
+          </div>
         </div>
 
         {/* Right: Interactive journey */}
@@ -110,7 +118,7 @@ export default function WhyChooseSunPort() {
                 Supply Chain Journey
               </p>
               <span className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-slate-300">
-                Hover or click a stage to explore
+                Click a stage to explore
               </span>
             </div>
 
@@ -122,8 +130,8 @@ export default function WhyChooseSunPort() {
                 return (
                   <button
                     key={stage.id}
-                    onMouseEnter={() => setActiveId(stage.id)}
                     onClick={() => setActiveId(stage.id)}
+                    type="button"
                     className="relative z-10 flex flex-col items-center gap-1 text-xs sm:text-[13px]"
                   >
                     <motion.div
