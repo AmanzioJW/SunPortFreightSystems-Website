@@ -160,7 +160,6 @@ export default function WhyChooseSunPort() {
                           ? "border-cyan-300/70 bg-slate-900 shadow-[0_0_12px_rgba(34,211,238,0.35)]"
                           : "border-slate-600 bg-slate-900/60"
                       }`}
-                      layoutId="stageDot"
                       transition={{ type: "spring", stiffness: 350, damping: 28 }}
                     >
                       <span
