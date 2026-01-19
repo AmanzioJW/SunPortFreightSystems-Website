@@ -51,8 +51,7 @@ export default function Solutions() {
                             showCTA={true}
                             ctaText="Explore FTL"
                             ctaHref="/Services/truckload-ftl"
-                            showImagePlaceholder={true}
-                            imagePlaceholder="Truckload service image"
+                            imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Truckload freight service"
                         />
 
@@ -72,8 +71,7 @@ export default function Solutions() {
                             showCTA={true}
                             ctaText="Explore LTL"
                             ctaHref="/Services/less-than-truckload-ltl"
-                            showImagePlaceholder={true}
-                            imagePlaceholder="LTL service image"
+                            imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Less-than-truckload service"
                         />
                         <CardFlip
@@ -92,8 +90,7 @@ export default function Solutions() {
                             showCTA={true}
                             ctaText="Explore Intermodal"
                             ctaHref="/Services/Intermodal"
-                            showImagePlaceholder={true}
-                            imagePlaceholder="Intermodal service image"
+                            imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Intermodal freight service"
                         />
                         <CardFlip
@@ -112,8 +109,7 @@ export default function Solutions() {
                             showCTA={true}
                             ctaText="Explore Warehousing"
                             ctaHref="/Services/Warehousing"
-                            showImagePlaceholder={true}
-                            imagePlaceholder="Warehousing service image"
+                            imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Warehousing service"
                         />
                         <CardFlip
@@ -132,8 +128,7 @@ export default function Solutions() {
                             showCTA={true}
                             ctaText="Explore Specialized"
                             ctaHref="/Services/specialized-services"
-                            showImagePlaceholder={true}
-                            imagePlaceholder="Specialized service image"
+                            imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Specialized freight services"
                         />
                         <CardFlip
@@ -152,8 +147,7 @@ export default function Solutions() {
                             showCTA={true}
                             ctaText="Talk to a specialist"
                             ctaHref="/Contact"
-                            showImagePlaceholder={true}
-                            imagePlaceholder="Custom solution image"
+                            imageSrc="/images/supply-chain-network.jpg"
                             imageAlt="Custom freight solutions"
                         />
                     </div>
