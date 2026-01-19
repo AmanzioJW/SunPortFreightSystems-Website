@@ -5,15 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/app/components/ui/button";
 
-type Stage = {
-  id: string;
-  label: string;
-  title: string;
-  body: string;
-  metric?: string;
-};
-
-const STAGES: Stage[] = [
+const STAGES = [
   {
     id: "plan",
     label: "Plan & Quote",
@@ -65,7 +57,7 @@ const STAGES: Stage[] = [
 ];
 
 export default function WhyChooseSunPort() {
-  const [activeId, setActiveId] = useState<string>("plan");
+  const [activeId, setActiveId] = useState("plan");
   const active = STAGES.find((s) => s.id === activeId) ?? STAGES[0];
 
   return (
