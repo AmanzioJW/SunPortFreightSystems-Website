@@ -18,9 +18,9 @@ export const DropdownIllustration = () => {
                             <div style={{ width: '100%', aspectRatio: '16/9', maxWidth: '100%' }}>
                                 <SmartPlay
                                     mp4Upload=""
-                                    videoUrl=""
+                                    videoUrl="/videos/hero-background.mp4"
                                     vimeoUrl=""
-                                    posterUpload=""
+                                    posterUpload="/images/supply-chain-network.jpg"
                                     autoplay={true}
                                     muted={true}
                                     loop={true}

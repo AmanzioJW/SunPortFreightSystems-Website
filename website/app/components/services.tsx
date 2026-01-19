@@ -2,7 +2,7 @@ import CardFlip from "@/app/components/mvpblocks/card-flip"
 
 export default function Solutions() {
     return (
-        <section className="relative">
+        <section id="services" className="relative">
             <div
                 aria-hidden
                 className="mask-b-from-65% pointer-events-none absolute -left-2 right-0 -mt-12 sm:-top-24 lg:inset-x-0 lg:-top-32">
@@ -21,105 +21,111 @@ export default function Solutions() {
             <div className="@container relative py-16 lg:py-24">
                 <div className="mx-auto w-full max-w-5xl px-6">
                     <div>
-                        <span className="text-primary font-mono text-sm uppercase">What you get</span>
+                        <span className="text-primary font-mono text-sm uppercase">Services</span>
                         <div className="mt-8 grid items-end gap-6 md:grid-cols-2">
-                            <h2 className="text-foreground text-4xl font-semibold md:text-5xl">Build winning subscriptions with smarter blocks</h2>
+                            <h2 className="text-foreground text-4xl font-semibold md:text-5xl">Freight solutions built for every lane</h2>
                             <div className="lg:pl-12">
-                                <p className="text-muted-foreground text-balance">Everything you need to design, launch, and scale—crafted for speed, reliability, and a seamless developer experience.</p>
+                                <p className="text-muted-foreground text-balance">From full truckload to specialized freight, we match the right mode, carrier, and routing with proactive support and real-time visibility.</p>
                             </div>
                         </div>
                     </div>
                     <div className="@xl:grid-cols-2 @3xl:grid-cols-3 mt-16 grid gap-2 [--color-border:color-mix(in_oklab,var(--color-foreground)10%,transparent)]">
                         <CardFlip
                             title="Full Truckload (FTL)"
-                            subtitle="Dedicated shipping solution"
-                            description="Secure dedicated capacity for your high-volume shipments."
+                            subtitle="Dedicated capacity"
+                            description="Secure dedicated equipment for high-volume or time-sensitive freight."
                             features={[
-                                "Dedicated trailer capacity for your exclusive use",
-                                "Direct, non-stop transport to destination",
-                                "Fastest transit times in the industry",
-                                "Minimal handling risk for your cargo"
+                                "Single-shipment focus",
+                                "Direct point-to-point moves",
+                                "Flexible appointment support",
+                                "Real-time tracking updates"
                             ]}
                             height="h-full min-h-[400px]"
                             maxWidth=""
-                            showCodeBlocks={true}
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Learn more"
                         />
 
                         <CardFlip
                             title="Less-Than-Truckload (LTL)"
-                            subtitle="Cost-effective flexibility"
-                            description="Pay only for the space you need by sharing trailer capacity, without sacrificing tracking visibility or service reliability."
+                            subtitle="Flexible, cost-efficient"
+                            description="Share trailer space while keeping reliable transit and visibility."
                             features={[
-                                "Pay only for space you need",
-                                "Shared trailer capacity",
-                                "Full tracking visibility",
-                                "Reliable service delivery"
+                                "Pay for space used",
+                                "National LTL network",
+                                "Consolidated billing",
+                                "Proactive exception alerts"
                             ]}
                             height="h-full min-h-[400px]"
                             maxWidth=""
-                            showCodeBlocks={true}
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Learn more"
                         />
                         <CardFlip
                             title="Intermodal"
-                            subtitle="Rail & truck combined"
-                            description="Optimize your long-haul supply chain by combining the economy of rail with the flexibility of trucking."
+                            subtitle="Rail + truck savings"
+                            description="Lower long-haul costs while maintaining reliable service."
                             features={[
-                                "Economy of rail transport",
-                                "Flexibility of trucking",
-                                "Reduced carbon footprint",
-                                "Lower shipping costs"
+                                "Consistent linehaul schedules",
+                                "Lower emissions options",
+                                "Capacity in tight markets",
+                                "End-to-end tracking"
                             ]}
                             height="h-full min-h-[400px]"
                             maxWidth=""
-                            showCodeBlocks={true}
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Learn more"
                         />
                         <CardFlip
                             title="Warehousing"
-                            subtitle="Strategic storage solutions"
-                            description="Real-time inventory management from cross-docking to long-term storage."
+                            subtitle="Storage and distribution"
+                            description="Strategic warehousing to keep inventory positioned and moving."
                             features={[
-                                "Real-time inventory tracking",
-                                "Cross-docking services",
-                                "Long-term storage options",
-                                "Rapid distribution ready"
+                                "Cross-dock and transload",
+                                "Short- and long-term storage",
+                                "Inventory visibility",
+                                "Pick and pack support"
                             ]}
                             height="h-full min-h-[400px]"
                             maxWidth=""
-                            showCodeBlocks={true}
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Learn more"
                         />
                         <CardFlip
                             title="Specialized Services"
-                            subtitle="Expert handling"
-                            description="Our network is equipped to manage temperature-controlled, Hazmat, and heavy-haul requirements safely."
+                            subtitle="Hazmat and heavy haul"
+                            description="Certified carrier partners for regulated, oversized, and sensitive freight."
                             features={[
-                                "Temperature-controlled transport",
-                                "Hazmat certified handling",
-                                "Heavy-haul capabilities",
-                                "Safety-first approach"
+                                "Hazmat-certified carriers",
+                                "Oversize permit coordination",
+                                "Temperature-controlled options",
+                                "Risk-mitigation planning"
                             ]}
                             height="h-full min-h-[400px]"
                             maxWidth=""
-                            showCodeBlocks={true}
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Learn more"
                         />
                         <CardFlip
                             title="Have a Unique Project?"
                             subtitle="Custom solutions"
-                            description="Connect with our solution architects to build a bespoke transportation plan for projects that don't fit standard categories."
+                            description="Complex lanes, unusual freight, or tight timelines - we design around your needs."
                             features={[
-                                "Custom transportation plans",
-                                "Solution architect support",
-                                "Bespoke project handling",
-                                "Non-standard category support"
+                                "Dedicated solution design",
+                                "Multi-modal planning",
+                                "Project management support",
+                                "Clear, upfront pricing"
                             ]}
                             height="h-full min-h-[400px]"
                             maxWidth=""
-                            showCodeBlocks={true}
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Learn more"
                         />
                     </div>
                 </div>

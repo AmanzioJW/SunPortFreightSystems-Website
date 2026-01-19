@@ -9,19 +9,19 @@ export default function FeaturesSection() {
     return (
         <section className="px-4 py-16 md:py-32">
             <h2 className="mb-12 text-center text-4xl font-semibold lg:text-5xl">
-                Powerful Technology</h2>
+                Technology built for freight visibility</h2>
                 <p className="mb-12 text-center text-lg text-muted-foreground">
-                    Our platform leverages cutting-edge technology to provide real-time tracking and seamless communication.
+                    Track shipments, receive proactive alerts, and keep every stakeholder aligned in real time.
                 </p>
             <div className="mx-auto grid max-w-5xl border md:grid-cols-2">
                 <div>
                     <div className="p-6 sm:p-12">
                         <span className="text-muted-foreground flex items-center gap-2">
                             <MapIcon className="size-4" />
-                            Real time location tracking
+                            Real-time location tracking
                         </span>
 
-                        <p className="mt-8 text-2xl font-semibold">Advanced tracking system, Instantly locate all your assets.</p>
+                        <p className="mt-8 text-2xl font-semibold">Advanced tracking with live location updates across every mode.</p>
                     </div>
 
                     <div
@@ -29,7 +29,7 @@ export default function FeaturesSection() {
                         className="relative">
                         <div className="absolute inset-0 z-10 m-auto size-fit">
                             <div className="rounded-(--radius) bg-background z-1 dark:bg-muted relative flex size-fit w-fit items-center gap-2 border px-3 py-1 text-xs font-medium shadow-md shadow-zinc-950/5">
-                                <span className="text-lg">🇨🇩</span> Last connection from DR Congo
+                                Last ping: Dallas, TX
                             </div>
                             <div className="rounded-(--radius) bg-background absolute inset-2 -bottom-2 mx-auto border px-3 py-4 text-xs font-medium shadow-md shadow-zinc-950/5 dark:bg-zinc-900"></div>
                         </div>
@@ -44,10 +44,10 @@ export default function FeaturesSection() {
                     <div className="relative z-10">
                         <span className="text-muted-foreground flex items-center gap-2">
                             <MessageCircle className="size-4" />
-                            Email and web support
+                            Dedicated support
                         </span>
 
-                        <p className="my-8 text-2xl font-semibold">Reach out via email or web for any assistance you need.</p>
+                        <p className="my-8 text-2xl font-semibold">Get fast answers from a team that knows your lanes and priorities.</p>
                     </div>
                     <div
                         aria-hidden
@@ -59,17 +59,17 @@ export default function FeaturesSection() {
                                 </span>
                                 <span className="text-muted-foreground text-xs">Sat 22 Feb</span>
                             </div>
-                            <div className="rounded-(--radius) bg-background mt-1.5 w-3/5 border p-3 text-xs">Hey, I'm having trouble with my account.</div>
+                            <div className="rounded-(--radius) bg-background mt-1.5 w-3/5 border p-3 text-xs">Need an update on load 4812.</div>
                         </div>
 
                         <div>
-                            <div className="rounded-(--radius) mb-1 ml-auto w-3/5 bg-blue-600 p-3 text-xs text-white">Molestiae numquam debitis et ullam distinctio provident nobis repudiandae deleniti necessitatibus.</div>
+                            <div className="rounded-(--radius) mb-1 ml-auto w-3/5 bg-blue-600 p-3 text-xs text-white">Update sent. ETA is 4:20 PM with POD on delivery.</div>
                             <span className="text-muted-foreground block text-right text-xs">Now</span>
                         </div>
                     </div>
                 </div>
                 <div className="col-span-full border-y p-12">
-                    <p className="text-center text-4xl font-semibold lg:text-7xl">99.99% Uptime</p>
+                    <p className="text-center text-4xl font-semibold lg:text-7xl">24/7 Visibility</p>
                 </div>
                 <div className="relative col-span-full">
                     <div className="absolute z-10 max-w-lg px-6 pr-12 pt-6 md:px-12 md:pt-12">
@@ -79,7 +79,7 @@ export default function FeaturesSection() {
                         </span>
 
                         <p className="my-8 text-2xl font-semibold">
-                            Monitor your application's activity in real-time. <span className="text-muted-foreground"> Instantly identify and resolve issues.</span>
+                            Monitor shipment milestones in real time. <span className="text-muted-foreground"> Spot delays early and keep stakeholders informed.</span>
                         </p>
                     </div>
                     <MonitoringChart />
@@ -119,23 +119,23 @@ const Map = () => {
 }
 
 const chartConfig = {
-    desktop: {
-        label: 'Desktop',
+    onTime: {
+        label: 'On-time shipments',
         color: '#2563eb',
     },
-    mobile: {
-        label: 'Mobile',
-        color: '#60a5fa',
+    exceptions: {
+        label: 'Exceptions',
+        color: '#f97316',
     },
 } satisfies ChartConfig
 
 const chartData = [
-    { month: 'May', desktop: 56, mobile: 224 },
-    { month: 'June', desktop: 56, mobile: 224 },
-    { month: 'January', desktop: 126, mobile: 252 },
-    { month: 'February', desktop: 205, mobile: 410 },
-    { month: 'March', desktop: 200, mobile: 126 },
-    { month: 'April', desktop: 400, mobile: 800 },
+    { month: 'May', onTime: 320, exceptions: 14 },
+    { month: 'June', onTime: 340, exceptions: 12 },
+    { month: 'July', onTime: 360, exceptions: 18 },
+    { month: 'August', onTime: 390, exceptions: 16 },
+    { month: 'September', onTime: 410, exceptions: 11 },
+    { month: 'October', onTime: 430, exceptions: 9 },
 ]
 
 const MonitoringChart = () => {
@@ -152,36 +152,36 @@ const MonitoringChart = () => {
                 }}>
                 <defs>
                     <linearGradient
-                        id="fillDesktop"
+                        id="fillOnTime"
                         x1="0"
                         y1="0"
                         x2="0"
                         y2="1">
                         <stop
                             offset="0%"
-                            stopColor="var(--color-desktop)"
+                            stopColor="var(--color-onTime)"
                             stopOpacity={0.8}
                         />
                         <stop
                             offset="55%"
-                            stopColor="var(--color-desktop)"
+                            stopColor="var(--color-onTime)"
                             stopOpacity={0.1}
                         />
                     </linearGradient>
                     <linearGradient
-                        id="fillMobile"
+                        id="fillExceptions"
                         x1="0"
                         y1="0"
                         x2="0"
                         y2="1">
                         <stop
                             offset="0%"
-                            stopColor="var(--color-mobile)"
+                            stopColor="var(--color-exceptions)"
                             stopOpacity={0.8}
                         />
                         <stop
                             offset="55%"
-                            stopColor="var(--color-mobile)"
+                            stopColor="var(--color-exceptions)"
                             stopOpacity={0.1}
                         />
                     </linearGradient>
@@ -194,20 +194,20 @@ const MonitoringChart = () => {
                 />
                 <Area
                     strokeWidth={2}
-                    dataKey="mobile"
+                    dataKey="exceptions"
                     type="stepBefore"
-                    fill="url(#fillMobile)"
+                    fill="url(#fillExceptions)"
                     fillOpacity={0.1}
-                    stroke="var(--color-mobile)"
+                    stroke="var(--color-exceptions)"
                     stackId="a"
                 />
                 <Area
                     strokeWidth={2}
-                    dataKey="desktop"
+                    dataKey="onTime"
                     type="stepBefore"
-                    fill="url(#fillDesktop)"
+                    fill="url(#fillOnTime)"
                     fillOpacity={0.1}
-                    stroke="var(--color-desktop)"
+                    stroke="var(--color-onTime)"
                     stackId="a"
                 />
             </AreaChart>

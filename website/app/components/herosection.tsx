@@ -40,14 +40,14 @@ export function HeroSection() {
                     <div className="flex justify-start">
                         <div className="max-w-xl text-white">
                             <h1 className="mt-4 text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">
-                                Delivering Confidence with Every Shipment.
+                                Delivering confidence with every shipment.
                             </h1>
                             <p className="mb-6 mt-4 text-balance text-lg text-white/90">
-                                Seamless freight solutions crafted to deliver confidence with every shipment.
+                                Tech-enabled freight solutions across ocean, air, rail, and truck - backed by proactive support and real-time visibility.
                             </p>
 
                             <Button asChild>
-                                <Link href="#link">Learn More</Link>
+                                <Link href="/Contact">Get a Quote</Link>
                             </Button>
                         </div>
                     </div>

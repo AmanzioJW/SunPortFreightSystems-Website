@@ -6,23 +6,27 @@ import Link from 'next/link'
 
 const links = [
     {
-        group: 'Product',
+        group: 'Services',
         items: [
             {
-                title: 'Features',
-                href: '#',
+                title: 'Truckload (FTL)',
+                href: '/Services/truckload-ftl',
             },
             {
-                title: 'Solution',
-                href: '#',
+                title: 'Less Than Truckload (LTL)',
+                href: '/Services/less-than-truckload-ltl',
             },
             {
-                title: 'Partnerships',
-                href: '#',
+                title: 'Intermodal',
+                href: '/Services/Intermodal',
             },
             {
-                title: 'Mobile App',
-                href: '#',
+                title: 'Warehousing',
+                href: '/Services/Warehousing',
+            },
+            {
+                title: 'Specialized Services',
+                href: '/Services/specialized-services',
             },
         ],
     },
@@ -30,16 +34,20 @@ const links = [
         group: 'Resources',
         items: [
             {
-                title: 'Blog',
-                href: '#',
+                title: 'Industry News',
+                href: '/NewsandResources/industry-news',
             },
             {
-                title: 'Documentation',
-                href: '#',
+                title: 'Alerts & Notices',
+                href: '/NewsandResources/alerts-and-notices',
             },
             {
-                title: 'Support',
-                href: '#',
+                title: 'Tools & Calculators',
+                href: '/NewsandResources/tools-and-calculators',
+            },
+            {
+                title: 'SunPort Hub',
+                href: '/NewsandResources',
             },
         ],
     },
@@ -47,16 +55,24 @@ const links = [
         group: 'Company',
         items: [
             {
-                title: 'About',
-                href: '#',
+                title: 'About Us',
+                href: '/about-us',
             },
             {
-                title: 'Licence',
-                href: '#',
+                title: 'Contact',
+                href: '/Contact',
             },
             {
-                title: 'Privacy',
-                href: '#',
+                title: 'Privacy Policy',
+                href: '/privacy-policy',
+            },
+            {
+                title: 'Terms & Conditions',
+                href: '/terms-and-conditions',
+            },
+            {
+                title: 'Cookies',
+                href: '/Cookies',
             },
         ],
     },
@@ -77,12 +93,12 @@ export default function FooterSection() {
                             <Logo />
                         </Link>
 
-                        <p className="text-muted-foreground text-balance text-sm">San Francisco, CA 94102 - United States</p>
+                        <p className="text-muted-foreground text-balance text-sm">Serving shippers and carriers across North America.</p>
                     </div>
 
                     <div className="flex flex-wrap gap-3 text-sm">
                         <Link
-                            href="#"
+                            href="https://x.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="X/Twitter"
@@ -99,7 +115,7 @@ export default function FooterSection() {
                             </svg>
                         </Link>
                         <Link
-                            href="#"
+                            href="https://www.linkedin.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
@@ -165,19 +181,19 @@ export default function FooterSection() {
                                     <span>Subscribe</span>
                                 </Button>
                             </div>
-                            <p className="text-muted-foreground text-xs">Get the latest product news and behind the scenes updates. Unsubscribe at any time.</p>
+                            <p className="text-muted-foreground text-xs">Get freight market updates and SunPort insights. Unsubscribe at any time.</p>
                         </form>
                     </div>
                 </div>
 
                 <div className="flex flex-wrap justify-between gap-4 border-t py-8">
-                    <span className="text-muted-foreground text-sm">© {new Date().getFullYear()} Tailark, All rights reserved </span>
+                    <span className="text-muted-foreground text-sm">© {new Date().getFullYear()} SunPort Freight Systems, All rights reserved </span>
                     <div className="ring-foreground/5 bg-card flex items-center gap-2 rounded-full border border-transparent py-1 pl-2 pr-4 shadow ring-1">
                         <div className="relative flex size-3">
                             <span className="duration-1500 absolute inset-0 block size-full animate-pulse rounded-full bg-emerald-100"></span>
                             <span className="relative m-auto block size-1 rounded-full bg-emerald-500"></span>
                         </div>
-                        <span className="text-sm">All Systems Normal</span>
+                        <span className="text-sm">Tracking Online</span>
                     </div>
                 </div>
             </div>

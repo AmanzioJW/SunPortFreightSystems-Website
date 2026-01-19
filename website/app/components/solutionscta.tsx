@@ -11,55 +11,55 @@ import { cn } from '@/app/lib/utils'
 const carouselItems = [
     {
         image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171590/time_djv8te.webp",
-        alt: "Visual intelligence representation",
-        title: "Not a Bad Story",
-        description: "Our platform integrates text, image, and audio processing into a unified framework.",
-        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        alt: "Freight market trends",
+        title: "Industry News",
+        description: "Weekly updates on capacity, rates, and supply chain trends.",
+        link: "/NewsandResources/industry-news",
         width: 1388,
         height: 1388
     },
     {
         image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171584/dots-2_kmiukp.webp",
-        alt: "Multimodal learning visualization",
-        title: "Made 3M in 2 years",
-        description: "Our platform integrates text, image, and audio processing into a unified framework.",
-        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        alt: "Service alerts and notices",
+        title: "Alerts & Notices",
+        description: "Weather impacts, service advisories, and operational updates.",
+        link: "/NewsandResources/alerts-and-notices",
         width: 1388,
         height: 1388
     },
     {
         image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171590/dna_lp2xey.webp",
-        alt: "DNA visualization",
-        title: "Raised 10M",
-        description: "Our platform integrates text, image, and audio processing into a unified framework.",
-        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        alt: "Carrier resources toolkit",
+        title: "Carrier Resources",
+        description: "Compliance guides, onboarding help, and safety updates.",
+        link: "/NewsandResources/carrier-resources",
         width: 1388,
         height: 1388
     },
     {
         image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171590/time_djv8te.webp",
-        alt: "Innovation showcase",
-        title: "Scaled to 100K Users",
-        description: "Our platform delivers cutting-edge solutions for modern businesses seeking growth.",
-        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        alt: "Shipper resources and guides",
+        title: "Shipper Resources",
+        description: "RFP templates, packaging tips, and lane planning best practices.",
+        link: "/NewsandResources/shipper-resources",
         width: 1388,
         height: 1388
     },
     {
         image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171584/dots-2_kmiukp.webp",
-        alt: "Technology advancement",
-        title: "Won Industry Award",
-        description: "Recognized for innovation and excellence in AI-powered marketing solutions.",
-        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        alt: "Regulatory updates",
+        title: "Government Agency Updates",
+        description: "DOT, FMCSA, and port authority updates in one place.",
+        link: "/NewsandResources/government-agency-updates",
         width: 1388,
         height: 1388
     },
     {
         image: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171590/dna_lp2xey.webp",
-        alt: "Global expansion",
-        title: "Expanded to 50 Countries",
-        description: "Bringing innovative marketing tools to businesses worldwide with seamless integration.",
-        link: "https://res.cloudinary.com/dohqjvu9k/image/upload/v1755171585/ai-human-2_uo6bxc.jpg",
+        alt: "Freight tools and calculators",
+        title: "Tools & Calculators",
+        description: "Density, class, and accessorial calculators for faster quotes.",
+        link: "/NewsandResources/tools-and-calculators",
         width: 1388,
         height: 1388
     }
@@ -102,7 +102,7 @@ export function ContentSection() {
             <div className="bg-muted/50 @container py-16 md:py-24">
                 <div className="mx-auto max-w-5xl px-6">
                     <h2 className="text-muted-foreground text-balance text-4xl font-semibold md:w-2/3">
-                        Building the next generation of <strong className="text-foreground font-semibold">AI-powered Marketing Tools</strong>
+                        Freight insights and tools from the <strong className="text-foreground font-semibold">SunPort Hub</strong>
                     </h2>
 
                     <div ref={emblaRef} className="mt-12 overflow-hidden">
@@ -126,13 +126,7 @@ export function ContentSection() {
                                         </AspectRatio>
                                         <h3 className="text-muted-foreground text-sm">{item.title}</h3>
                                         <p className="text-muted-foreground">
-                                            {item.description.includes('integrates') ? (
-                                                <>
-                                                    Our platform <strong className="text-foreground font-semibold">integrates text, image, and audio processing</strong> into a unified framework.
-                                                </>
-                                            ) : (
-                                                item.description
-                                            )}
+                                            {item.description}
                                         </p>
                                         <Link
                                             href={item.link}
