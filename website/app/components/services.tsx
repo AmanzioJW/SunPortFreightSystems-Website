@@ -21,105 +21,140 @@ export default function Solutions() {
             <div className="@container relative py-16 lg:py-24">
                 <div className="mx-auto w-full max-w-5xl px-6">
                     <div>
-                        <span className="text-primary font-mono text-sm uppercase">What you get</span>
+                        <span className="text-primary font-mono text-sm uppercase">Freight services</span>
                         <div className="mt-8 grid items-end gap-6 md:grid-cols-2">
-                            <h2 className="text-foreground text-4xl font-semibold md:text-5xl">Build winning subscriptions with smarter blocks</h2>
+                            <h2 className="text-foreground text-4xl font-semibold md:text-5xl">
+                                Freight services built for reliability, visibility, and scale.
+                            </h2>
                             <div className="lg:pl-12">
-                                <p className="text-muted-foreground text-balance">Everything you need to design, launch, and scale—crafted for speed, reliability, and a seamless developer experience.</p>
+                                <p className="text-muted-foreground text-balance">
+                                    From truckload and LTL to intermodal, warehousing, and specialized moves, SunPort
+                                    designs service plans around your lanes, compliance needs, and customer promises.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div className="@xl:grid-cols-2 @3xl:grid-cols-3 mt-16 grid gap-2 [--color-border:color-mix(in_oklab,var(--color-foreground)10%,transparent)]">
+                    <div className="@xl:grid-cols-2 @3xl:grid-cols-3 mt-12 grid gap-6 [--color-border:color-mix(in_oklab,var(--color-foreground)10%,transparent)]">
                         <CardFlip
-                            title="Full Truckload (FTL)"
-                            subtitle="Dedicated shipping solution"
-                            description="Secure dedicated capacity for your high-volume shipments."
+                            title="Truckload (FTL)"
+                            subtitle="Dedicated capacity"
+                            description="Secure consistent capacity and direct routing for full-load freight across North America."
                             features={[
-                                "Dedicated trailer capacity for your exclusive use",
-                                "Direct, non-stop transport to destination",
-                                "Fastest transit times in the industry",
-                                "Minimal handling risk for your cargo"
+                                "Dedicated trailers and driver capacity",
+                                "Direct linehaul with fewer stops",
+                                "High-value and time-critical freight",
+                                "Proactive tracking and exception handling"
                             ]}
                             height="h-full min-h-[400px]"
-                            maxWidth=""
-                            showCodeBlocks={true}
+                            maxWidth="max-w-none"
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Explore FTL"
+                            ctaHref="/Services/truckload-ftl"
+                            showImagePlaceholder={true}
+                            imagePlaceholder="Truckload service image"
+                            imageAlt="Truckload freight service"
                         />
 
                         <CardFlip
-                            title="Less-Than-Truckload (LTL)"
-                            subtitle="Cost-effective flexibility"
-                            description="Pay only for the space you need by sharing trailer capacity, without sacrificing tracking visibility or service reliability."
+                            title="Less-than-Truckload (LTL)"
+                            subtitle="Flexible, cost-efficient shipping"
+                            description="Move smaller shipments without paying for a full trailer while keeping reliable service."
                             features={[
-                                "Pay only for space you need",
-                                "Shared trailer capacity",
-                                "Full tracking visibility",
-                                "Reliable service delivery"
+                                "Pay only for the space you need",
+                                "Nationwide partner network coverage",
+                                "Pickup, delivery, and accessorial options",
+                                "Milestone tracking with clear ETAs"
                             ]}
                             height="h-full min-h-[400px]"
-                            maxWidth=""
-                            showCodeBlocks={true}
+                            maxWidth="max-w-none"
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Explore LTL"
+                            ctaHref="/Services/less-than-truckload-ltl"
+                            showImagePlaceholder={true}
+                            imagePlaceholder="LTL service image"
+                            imageAlt="Less-than-truckload service"
                         />
                         <CardFlip
                             title="Intermodal"
-                            subtitle="Rail & truck combined"
-                            description="Optimize your long-haul supply chain by combining the economy of rail with the flexibility of trucking."
+                            subtitle="Rail + truck efficiency"
+                            description="Blend rail efficiency with truck flexibility for long-haul lanes and sustainability goals."
                             features={[
-                                "Economy of rail transport",
-                                "Flexibility of trucking",
+                                "Rail linehaul with drayage coordination",
+                                "Lower cost per mile on long routes",
                                 "Reduced carbon footprint",
-                                "Lower shipping costs"
+                                "Ideal for consistent, high-volume lanes"
                             ]}
                             height="h-full min-h-[400px]"
-                            maxWidth=""
-                            showCodeBlocks={true}
+                            maxWidth="max-w-none"
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Explore Intermodal"
+                            ctaHref="/Services/Intermodal"
+                            showImagePlaceholder={true}
+                            imagePlaceholder="Intermodal service image"
+                            imageAlt="Intermodal freight service"
                         />
                         <CardFlip
                             title="Warehousing"
-                            subtitle="Strategic storage solutions"
-                            description="Real-time inventory management from cross-docking to long-term storage."
+                            subtitle="Storage and distribution"
+                            description="Secure warehousing, cross-dock, and inventory visibility that keeps freight moving."
                             features={[
-                                "Real-time inventory tracking",
-                                "Cross-docking services",
-                                "Long-term storage options",
-                                "Rapid distribution ready"
+                                "Short- and long-term storage",
+                                "Cross-dock and transload services",
+                                "Inventory visibility and reporting",
+                                "Pick, pack, and outbound support"
                             ]}
                             height="h-full min-h-[400px]"
-                            maxWidth=""
-                            showCodeBlocks={true}
+                            maxWidth="max-w-none"
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Explore Warehousing"
+                            ctaHref="/Services/Warehousing"
+                            showImagePlaceholder={true}
+                            imagePlaceholder="Warehousing service image"
+                            imageAlt="Warehousing service"
                         />
                         <CardFlip
                             title="Specialized Services"
-                            subtitle="Expert handling"
-                            description="Our network is equipped to manage temperature-controlled, Hazmat, and heavy-haul requirements safely."
+                            subtitle="Hazmat, oversized, and temp-controlled"
+                            description="Certified partners and equipment for regulated, oversized, and sensitive freight."
                             features={[
-                                "Temperature-controlled transport",
-                                "Hazmat certified handling",
-                                "Heavy-haul capabilities",
-                                "Safety-first approach"
+                                "Hazmat-certified carriers",
+                                "Heavy-haul and oversized equipment",
+                                "Temperature-controlled options",
+                                "Permitting and compliance support"
                             ]}
                             height="h-full min-h-[400px]"
-                            maxWidth=""
-                            showCodeBlocks={true}
+                            maxWidth="max-w-none"
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Explore Specialized"
+                            ctaHref="/Services/specialized-services"
+                            showImagePlaceholder={true}
+                            imagePlaceholder="Specialized service image"
+                            imageAlt="Specialized freight services"
                         />
                         <CardFlip
                             title="Have a Unique Project?"
-                            subtitle="Custom solutions"
-                            description="Connect with our solution architects to build a bespoke transportation plan for projects that don't fit standard categories."
+                            subtitle="Custom solution design"
+                            description="Complex routes, special equipment, or strict deadlines? Our team builds the plan."
                             features={[
-                                "Custom transportation plans",
-                                "Solution architect support",
-                                "Bespoke project handling",
-                                "Non-standard category support"
+                                "Dedicated solutions architect",
+                                "Lane and cost modeling",
+                                "Mode and carrier mix planning",
+                                "Project management from launch to delivery"
                             ]}
                             height="h-full min-h-[400px]"
-                            maxWidth=""
-                            showCodeBlocks={true}
+                            maxWidth="max-w-none"
+                            showCodeBlocks={false}
                             showCTA={true}
+                            ctaText="Talk to a specialist"
+                            ctaHref="/Contact"
+                            showImagePlaceholder={true}
+                            imagePlaceholder="Custom solution image"
+                            imageAlt="Custom freight solutions"
                         />
                     </div>
                 </div>
