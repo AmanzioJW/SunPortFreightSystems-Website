@@ -13,7 +13,6 @@ type Stage = {
 };
 
 const STAGES: Stage[] = [
-const STAGES = [
   {
     id: "plan",
     label: "Plan & Quote",
@@ -66,7 +65,6 @@ const STAGES = [
 
 export default function WhyChooseSunPort() {
   const [activeId, setActiveId] = useState<string>("plan");
-  const [activeId, setActiveId] = useState("plan");
   const active = STAGES.find((s) => s.id === activeId) ?? STAGES[0];
 
   return (
