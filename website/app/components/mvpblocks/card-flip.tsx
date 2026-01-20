@@ -1,5 +1,4 @@
 'use client';
-
 /**
  * @author: @nuelst
  * @description: Card Flip - MVP Development Theme
@@ -9,13 +8,11 @@
  * @website: https://nueslt.vercel.app
  * @github: https://github.com/nuelst
  */
-
 import { cn } from '@/app/lib/utils';
 import { ArrowRight, Code2, Copy, Rocket, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-
 export interface CardFlipProps {
   title?: string;
   subtitle?: string;
@@ -34,6 +31,9 @@ export interface CardFlipProps {
   imageAlt?: string;
   showImagePlaceholder?: boolean;
   imagePlaceholder?: string;
+  backLogoSrc?: string;
+  backLogoAlt?: string;
+  showBackLogo?: boolean;
 }
 
 export default function CardFlip({
@@ -57,6 +57,9 @@ export default function CardFlip({
   imageAlt,
   showImagePlaceholder = false,
   imagePlaceholder,
+  backLogoSrc,
+  backLogoAlt,
+  showBackLogo = false,
 }: CardFlipProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [codeBlockStyles, setCodeBlockStyles] = useState<Array<{ width: string; marginLeft: string }>>([])
@@ -64,6 +67,8 @@ export default function CardFlip({
   const showImage = Boolean(imageSrc) || showImagePlaceholder;
   const placeholderLabel = imagePlaceholder ?? 'Add service image';
   const resolvedImageAlt = imageAlt ?? title;
+  const resolvedBackLogoAlt = backLogoAlt ?? '';
+  const showBackLogoImage = Boolean(backLogoSrc) && showBackLogo;
   const frontTitleClass = cn(
     'text-lg leading-snug font-semibold tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px]',
     showImage ? 'text-white drop-shadow-sm' : 'text-zinc-900 dark:text-white',
@@ -76,7 +81,6 @@ export default function CardFlip({
     'relative z-10 h-5 w-5 transition-all duration-300 group-hover/icon:scale-110 group-hover/icon:rotate-12',
     showImage ? 'text-white' : 'text-primary',
   );
-
   useEffect(() => {
     // Generate random values only on client after hydration
     setCodeBlockStyles(
@@ -86,7 +90,6 @@ export default function CardFlip({
       }))
     )
   }, [])
-
   return (
     <div
       className={cn("group relative w-full perspective-[2000px]", height, maxWidth)}
@@ -143,7 +146,6 @@ export default function CardFlip({
           ) : (
             <div className="from-primary/5 dark:from-primary/10 absolute inset-0 bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
           )}
-
           {/* Animated code blocks */}
           {showCodeBlocks && (
             <div className="absolute inset-0 flex items-center justify-center pt-20">
@@ -165,7 +167,6 @@ export default function CardFlip({
                     }}
                   />
                 ))}
-
                 {/* Central rocket icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div
@@ -184,7 +185,6 @@ export default function CardFlip({
               </div>
             </div>
           )}
-
           {/* Bottom content */}
           <div className="absolute right-0 bottom-0 left-0 z-10 p-5">
             <div className="flex items-center justify-between gap-3">
@@ -204,12 +204,10 @@ export default function CardFlip({
                     'opacity-0 group-hover/icon:opacity-100',
                   )}
                 />
-                <Zap className={frontIconClass} />
               </div>
             </div>
           </div>
         </div>
-
         {/* Back of card */}
         <div
           className={cn(
@@ -230,6 +228,19 @@ export default function CardFlip({
           {/* Background gradient */}
           <div className="from-primary/5 dark:from-primary/10 absolute inset-0 rounded-2xl bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
 
+          {showBackLogoImage && (
+            <div className="pointer-events-none absolute inset-0">
+              <Image
+                src={backLogoSrc as string}
+                alt={resolvedBackLogoAlt}
+                aria-hidden={resolvedBackLogoAlt === ''}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                className="object-cover opacity-10"
+              />
+            </div>
+          )}
+
           <div className="relative z-10 flex-1 space-y-5">
             <div className="space-y-2">
               <div className="mb-2 flex items-center gap-2">
@@ -244,12 +255,10 @@ export default function CardFlip({
                 {description}
               </p>
             </div>
-
             <div className="space-y-2.5">
               {features.map((feature, index) => {
                 const icons = [Copy, Code2, Rocket, Zap];
                 const IconComponent = icons[index % icons.length];
-
                 return (
                   <div
                     key={feature}
@@ -271,7 +280,6 @@ export default function CardFlip({
               })}
             </div>
           </div>
-
           {showCTA && (
             <div className="relative z-10 mt-auto border-t border-slate-200 pt-4 dark:border-zinc-800">
               {ctaIsLink ? (
@@ -336,7 +344,6 @@ export default function CardFlip({
           )}
         </div>
       </div>
-
       <style jsx>{`
         @keyframes slideIn {
           0% {
