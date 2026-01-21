@@ -1,0 +1,122 @@
+/* ============================================
+   roadmap.module.css - Freight Journey Roadmap
+   ============================================ */
+
+/* CSS Variables - Scoped to the component */
+.section {
+  --_spacing-section: clamp(4rem, 6.11vw + 2.5rem, 8rem);
+  --_spacing-gap: clamp(1.5rem, 3.81vw + 0.57rem, 4rem);
+
+  /* Colors */
+  --_color-bg: #f8faf0;
+  --_color-text-primary: #072c2c;
+  --_color-text-secondary: #616659;
+  --_color-text-muted: #b5b9a6;
+  --_color-accent-green: #d0ffa8;
+  --_color-accent-orange: #ff5f02;
+  --_color-border: #e6e6d1;
+  --_color-sage: #b5b9a6;
+
+  /* Typography */
+  --_font-family: "FK Grotesk", Arial, sans-serif;
+
+  padding-top: var(--_spacing-section);
+  padding-bottom: var(--_spacing-section);
+  background-color: var(--_color-bg);
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  width: calc(100% - clamp(1rem, 0.76vw + 0.81rem, 1.5rem) * 2);
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--_spacing-gap);
+}
+
+.title {
+  font-family: var(--_font-family);
+  font-size: clamp(2rem, 2.29vw + 1.44rem, 3.5rem);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--_color-text-primary);
+  margin: 0 0 1rem 0;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.25rem);
+  line-height: 1.6;
+  color: var(--_color-text-secondary);
+  margin: 0;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Desktop Roadmap */
+.desktopRoadmap {
+  position: relative;
+}
+
+/* Mobile Roadmap */
+.mobileRoadmap {
+  position: relative;
+}
+
+/* Responsive Step Positions */
+.desktopRoadmap .roadmap-step {
+  position: absolute;
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .section * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1023px) {
+  .desktopRoadmap {
+    display: none;
+  }
+
+  .mobileRoadmap {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .desktopRoadmap {
+    display: block;
+  }
+
+  .mobileRoadmap {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .section {
+    padding: 2rem 0;
+  }
+
+  .desktopRoadmap,
+  .mobileRoadmap {
+    break-inside: avoid;
+  }
+}
